@@ -16,18 +16,18 @@ import mockUsers from "./mockUsers";
 import mockGames from "./mockGames";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(mockUsers[0])
-  const [games, setGames] = useState(mockGames)
+  const [currentUser, setCurrentUser] = useState(mockUsers[0]);
+  const [games, setGames] = useState(mockGames);
 
-  console.log(currentUser)
-  console.log(games)
+  console.log(currentUser);
+  console.log(games);
 
   return (
     <>
       <h3>GameVerse App</h3>
 
       <Header />
-        <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/gameedit" element={<GameEdit />} />
@@ -37,10 +37,10 @@ const App = () => {
         <Route path="/gameshow" element={<GameShow />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        </Routes>
+      </Routes>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App; 
+export default App;
