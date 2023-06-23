@@ -7,6 +7,6 @@ describe('NotFound Component', () => {
     render(<NotFound />);
     const imageElement = screen.getByAltText('UniverseImage');
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement.getAttribute('src')).toContain('NotFoundPage.jpg');
+    expect(imageElement.getAttribute('src')).toContain('NotFoundPage.avif');
   });
 });
