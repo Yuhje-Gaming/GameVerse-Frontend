@@ -1,10 +1,11 @@
 import React from 'react'
+import NotFoundPage from '../assets/NotFoundPage.avif'
 
 const NotFound = () => {
 
   return (
     <>
-      <h1>NotFound</h1>
+      <img src={NotFoundPage} alt="UniverseImage"/>
     </>
   )
 
