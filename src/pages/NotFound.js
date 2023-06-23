@@ -1,5 +1,5 @@
 import React from 'react'
-import NotFoundPage from '../assets/NotFoundPage.jpg'
+import NotFoundPage from '../assets/NotFoundPage.avif'
 
 const NotFound = () => {
 
