@@ -18,13 +18,12 @@ import Logout from "../assets/Logout.png"
 import AddNew from "../assets/AddNew.png"
 
 
-function Header() {
+function Header(currentUser) {
   const [isOpen,setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
 
   return(
-    <div>
     <Navbar 
       color="dark"
       dark
@@ -46,82 +45,84 @@ function Header() {
 
             <Collapse isOpen={isOpen} navbar>
               
-              <Nav 
-                className="drop-down" 
-                justified
-              >
-                
-                { currentUser && (
-                <>
-               
-                <NavItem>
-                  <NavLink to="/gameindex" className="nav-link">
-                  <img 
-                  src={ViewAll}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>
+            <Nav className="drop-down" justified>
 
-                <NavItem>
-                  <NavLink to="/gamenew" className="nav-link">
-                  <img 
-                  src={AddNew}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>  
+                {currentUser && (
+                  <>
+                    <NavItem>
+                      <NavLink to="/gameindex" className="nav-link">
+                        <img 
+                          src={ViewAll} 
+                          height="15px" 
+                        />
+                      </NavLink>
+                    </NavItem>
 
-                <NavItem>
-                  <NavLink to="/" className="nav-link">
-                  <img 
-                  src={Logout}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>        
-                </>
+                    <NavItem>
+                      <NavLink to="/gamenew" className="nav-link">
+                        <img 
+                          src={AddNew} 
+                          height="15px" 
+                        />
+                      </NavLink>
+                    </NavItem>
+
+                    <NavItem>
+                      <NavLink to="/" className="nav-link">
+                        <img 
+                          src={Logout} 
+                          height="15px" 
+                        />
+                      </NavLink>
+                    </NavItem>
+                    
+                    <NavItem>
+                      <NavbarText>{currentUser.username}</NavbarText>
+                    </NavItem>
+                  </>
                 )}
+
             
-                { !currentUser && (
-                <>
-                  
-                <NavItem>
-                  <NavLink to="/gameindex" className="nav-link">
-                  <img 
-                  src={ViewAll}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>
+                {!currentUser && (
+                  <>
+                    
+                  <NavItem>
+                    <NavLink to="/gameindex" className="nav-link">
+                      <img 
+                        src={ViewAll}
+                        height="15px"
+                      />
+                    </NavLink>
+                  </NavItem>
 
-                <NavItem>
-                  <NavLink to="/login" className="nav-link">
-                  <img 
-                  src={Login}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>
+                  <NavItem>
+                    <NavLink to="/login" className="nav-link">
+                      <img 
+                        src={Login}
+                        height="15px"
+                      />
+                    </NavLink>
+                  </NavItem>
 
-                <NavItem>
-                  <NavLink to="/signup" className="nav-link">
-                  <img 
-                  src={SignUp}
-                  height="15px"
-                  />
-                  </NavLink>
-                </NavItem>  
-                </>
+                  <NavItem>
+                    <NavLink to="/signup" className="nav-link">
+                      <img 
+                        src={SignUp}
+                        height="15px"
+                      />
+                    </NavLink>
+                  </NavItem>  
+                  </>
                 )}
               
               </Nav>
 
-              <NavbarText class="navbar-text" >Work in progress! </NavbarText>
+              <NavbarText class="navbar-text">
+                Work in progress! 
+              </NavbarText>
 
             </Collapse>
     </Navbar>
-  </div>
   )
 }
 

@@ -1,17 +1,21 @@
+// imports
 import React, { useState } from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+// components
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+// page files
 import GameEdit from "./pages/GameEdit";
 import GameIndex from "./pages/GameIndex";
 import GameNew from "./pages/GameNew";
 import GameProtectedIndex from "./pages/GameProtectedIndex";
 import GameShow from "./pages/GameShow";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+// mock data
 import mockUsers from "./mockUsers.js";
 import mockGames from "./mockGames";
 
