@@ -18,7 +18,7 @@ import Logout from "../assets/Logout.png"
 import AddNew from "../assets/AddNew.png"
 
 
-function Header(currentUser) {
+function Header({currentUser}) {
   const [isOpen,setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
@@ -29,18 +29,25 @@ function Header(currentUser) {
       dark
       >
       <NavbarBrand href="/">
-        <img
-            src={GameVerse}
-            alt="Game Verse logo gif"
-            className="gameverse-logo"
-        />
-        
-        <img 
-            src={GameverseFont}
-            alt="Gameverse fonts"
-            className="gameverse-font"
-        />
-        </NavbarBrand>
+        {currentUser && (
+        <>
+          <img
+              src={GameVerse}
+              alt="Game Verse logo gif"
+              className="gameverse-logo"
+          />
+          
+          <img 
+              src={GameverseFont}
+              alt="Gameverse fonts"
+              className="gameverse-font"
+          />
+        <NavbarText >
+          Welcome, {currentUser.email}
+        </NavbarText>  
+        </>
+        )}
+      </NavbarBrand>
           <NavbarToggler onClick={toggle} />
 
             <Collapse isOpen={isOpen} navbar>

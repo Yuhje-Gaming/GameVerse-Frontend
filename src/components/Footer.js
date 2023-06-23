@@ -8,28 +8,24 @@ import {
 import Ylogo from "../assets/Ylogo.png"
 
 const Footer = () => {
-
-  const handleClick = () => {;
-    alert(`Hello, there's no AboutMe page yet!!`);
-  }
+a
 
   return (
     <>
-      <Navbar className="navbar" color="success" dark fixed="bottom">
+      <Navbar className="navbar" color="dark" fixed="bottom">
         <NavbarBrand href="/">
           <img src={Ylogo} alt="Ylogo png" className="yfooter-logo" />
           <br />
-        </NavbarBrand>
-        <div>
-          <Button
+          <Button 
+            href="/aboutus"
             className="nav-link"
-            color="link"
-            onClick={handleClick}
-          >
+            color="light" >
             About Us
           </Button>
-        </div>
+        </NavbarBrand>
       </Navbar>
+       
+        
     </>
   )
 }

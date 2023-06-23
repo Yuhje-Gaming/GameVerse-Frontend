@@ -1,13 +1,12 @@
-// imports
 import React, { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// components
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
-// page files
+
 import GameEdit from "./pages/GameEdit";
 import GameIndex from "./pages/GameIndex";
 import GameNew from "./pages/GameNew";
@@ -15,8 +14,9 @@ import GameProtectedIndex from "./pages/GameProtectedIndex";
 import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-// mock data
-import mockUsers from "./mockUsers.js";
+import AboutUs from "./pages/AboutUs";
+
+import mockUsers from "./mockUsers";
 import mockGames from "./mockGames";
 
 const App = () => {
@@ -39,6 +39,7 @@ const App = () => {
         <Route path="/gameshow" element={<GameShow />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       <Footer />
     </>

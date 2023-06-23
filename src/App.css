@@ -3,30 +3,25 @@
   flex-direction: column;
   background-color: black;
   background-size: cover;
-  position: sticky;
+  position: sticky; 
+  height: 5px;
+  width: 5px;
 }
-/* Footer container */
+
 .navbar {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to the right */
+  justify-content: flex-end; 
 }
 
 .navbar-text{
   align-items: center;
 }
 
-/* "About Us" link styling */
-.nav-row{
-  margin-right: 80%;
-  justify-content: end;
-}
-
-/* Logo styling */
 .gameverse-logo {
-  height: 100px;
-  width: 100px;
-  margin-left: 50%;
+  height: 55px;
+  width: 55px;
+  margin-left: 5%;
   border-radius: 20%;
 }
 
@@ -38,5 +33,5 @@
   bottom: 5;
   height: 3rem;
   margin-block-start: -0.5%;
-  margin-left: 2%;
+  margin-left: 0%;
 }
