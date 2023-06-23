@@ -12,7 +12,7 @@ import GameProtectedIndex from "./pages/GameProtectedIndex";
 import GameShow from "./pages/GameShow";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import mockUsers from "./mockUsers";
+import mockUsers from "./mockUsers.js";
 import mockGames from "./mockGames";
 
 const App = () => {
@@ -24,9 +24,7 @@ const App = () => {
 
   return (
     <>
-      <h3>GameVerse App</h3>
-
-      <Header />
+      <Header currentUser={currentUser} />
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />

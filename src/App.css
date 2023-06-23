@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
   flex-direction: column;
+  background-color: black;
+  background-size: cover;
+  position: sticky;
+}
+/* Footer container */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to the right */
+}
+
+.navbar-text{
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* "About Us" link styling */
+.nav-row{
+  margin-right: 80%;
+  justify-content: end;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Logo styling */
+.gameverse-logo {
+  height: 100px;
+  width: 100px;
+  margin-left: 50%;
+  border-radius: 20%;
+}
+
+.yfooter-logo{
+  height: 50px;
+  width: 50px;
+  border-radius: 10%;
+  position: absolute;
+  bottom: 5;
+  height: 3rem;
+  margin-block-start: -0.5%;
+  margin-left: 2%;
 }
