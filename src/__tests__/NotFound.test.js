@@ -1,14 +1,12 @@
-import NotFound from "../components/NotFound";
-import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import NotFound from '../pages/NotFound';
 
-describe('<Has a page that renders without crashing />', () => {
-  it('renders text for NotFound', () => {
-    render(
-      <BrowserRouter>
-        <NotFound />
-      </BrowserRouter>
-    )
-  })
-})
-
+describe('NotFound Component', () => {
+  it('renders the NotFoundPage image', () => {
+    render(<NotFound />);
+    const imageElement = screen.getByAltText('UniverseImage');
+    expect(imageElement).toBeInTheDocument();
+    expect(imageElement.getAttribute('src')).toContain('NotFoundPage.avif');
+  });
+});
