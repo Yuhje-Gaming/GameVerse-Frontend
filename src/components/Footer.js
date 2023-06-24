@@ -8,24 +8,27 @@ import {
 import Ylogo from "../assets/Ylogo.png"
 
 const Footer = () => {
-a
 
   return (
     <>
-      <Navbar className="navbar" color="dark" fixed="bottom">
+      <Navbar 
+        className="foot-navbar" 
+        color="dark" 
+        fixed="bottom"
+      >
         <NavbarBrand href="/">
           <img src={Ylogo} alt="Ylogo png" className="yfooter-logo" />
-          <br />
+          
           <Button 
             href="/aboutus"
-            className="nav-link"
-            color="light" >
+            className="about-button"
+            color="light" 
+          >
             About Us
           </Button>
+
         </NavbarBrand>
       </Navbar>
-       
-        
     </>
   )
 }

@@ -25,110 +25,128 @@ function Header({currentUser}) {
 
   return(
     <Navbar 
+      className="head-navbar"
       color="dark"
       dark
-      >
+    >
       <NavbarBrand href="/">
         {currentUser && (
-        <>
-          <img
-              src={GameVerse}
-              alt="Game Verse logo gif"
-              className="gameverse-logo"
-          />
-          
-          <img 
-              src={GameverseFont}
-              alt="Gameverse fonts"
-              className="gameverse-font"
-          />
-        <NavbarText >
-          Welcome, {currentUser.email}
-        </NavbarText>  
-        </>
-        )}
-      </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-
-            <Collapse isOpen={isOpen} navbar>
-              
-            <Nav className="drop-down" justified>
-
-                {currentUser && (
-                  <>
-                    <NavItem>
-                      <NavLink to="/gameindex" className="nav-link">
-                        <img 
-                          src={ViewAll} 
-                          height="15px" 
-                        />
-                      </NavLink>
-                    </NavItem>
-
-                    <NavItem>
-                      <NavLink to="/gamenew" className="nav-link">
-                        <img 
-                          src={AddNew} 
-                          height="15px" 
-                        />
-                      </NavLink>
-                    </NavItem>
-
-                    <NavItem>
-                      <NavLink to="/" className="nav-link">
-                        <img 
-                          src={Logout} 
-                          height="15px" 
-                        />
-                      </NavLink>
-                    </NavItem>
-                    
-                    <NavItem>
-                      <NavbarText>{currentUser.username}</NavbarText>
-                    </NavItem>
-                  </>
-                )}
-
+          <>
+            <img
+                src={GameVerse}
+                alt="Game Verse logo gif"
+                className="gameverse-logo"
+            />
             
-                {!currentUser && (
-                  <>
-                    
-                  <NavItem>
-                    <NavLink to="/gameindex" className="nav-link">
-                      <img 
-                        src={ViewAll}
-                        height="15px"
-                      />
-                    </NavLink>
-                  </NavItem>
+            <img 
+                src={GameverseFont}
+                alt="Gameverse fonts"
+                className="gameverse-font"
+            />
 
-                  <NavItem>
-                    <NavLink to="/login" className="nav-link">
-                      <img 
-                        src={Login}
-                        height="15px"
-                      />
-                    </NavLink>
-                  </NavItem>
+            <NavbarText >
+              Welcome, {currentUser.email}
+            </NavbarText>  
+          </>
+        )}
+        
+        {!currentUser && (
+          <>
+            <img
+                src={GameVerse}
+                alt="Game Verse logo gif"
+                className="gameverse-logo"
+            />
+            
+            <img 
+                src={GameverseFont}
+                alt="Gameverse fonts"
+                className="gameverse-font"
+            />
+          </>
+        )}
 
-                  <NavItem>
-                    <NavLink to="/signup" className="nav-link">
-                      <img 
-                        src={SignUp}
-                        height="15px"
-                      />
-                    </NavLink>
-                  </NavItem>  
-                  </>
-                )}
+      </NavbarBrand>
+
+      <NavbarToggler onClick={toggle} />
+
+      <Collapse isOpen={isOpen} navbar>
+            
+        <Nav className="drop-down" justified>
+
+          {currentUser && (
+            <>
+              <NavItem>
+                <NavLink to="/gameindex" className="nav-link">
+                  <img 
+                    src={ViewAll} 
+                    height="15px" 
+                  />
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/gamenew" className="nav-link">
+                  <img 
+                    src={AddNew} 
+                    height="15px" 
+                  />
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/" className="nav-link">
+                  <img 
+                    src={Logout} 
+                    height="15px" 
+                  />
+                </NavLink>
+              </NavItem>
               
-              </Nav>
+              <NavItem>
+                <NavbarText>{currentUser.username}</NavbarText>
+              </NavItem>
+            </>
+          )}
 
-              <NavbarText class="navbar-text">
-                Work in progress! 
-              </NavbarText>
+          {!currentUser && (
+            <>
+              <NavItem>
+                <NavLink to="/gameindex" className="nav-link">
+                  <img 
+                    src={ViewAll}
+                    height="15px"
+                  />
+                </NavLink>
+              </NavItem>
 
-            </Collapse>
+              <NavItem>
+                <NavLink to="/login" className="nav-link">
+                  <img 
+                    src={Login}
+                    height="15px"
+                  />
+                </NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink to="/signup" className="nav-link">
+                  <img 
+                    src={SignUp}
+                    height="15px"
+                  />
+                </NavLink>
+              </NavItem>  
+            </>
+          )}
+            
+        </Nav>
+
+        <NavbarText class="navbar-text">
+          Work in progress! 
+        </NavbarText>
+
+      </Collapse>
     </Navbar>
   )
 }

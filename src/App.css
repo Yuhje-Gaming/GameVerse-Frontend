@@ -1,20 +1,14 @@
-.header {
+.head-navbar {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  background-color: black;
-  background-size: cover;
-  position: sticky; 
-  height: 5px;
-  width: 5px;
 }
 
-.navbar {
+.foot-navbar {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end; 
 }
 
-.navbar-text{
+.navbar-text {
   align-items: center;
 }
 
@@ -25,7 +19,7 @@
   border-radius: 20%;
 }
 
-.yfooter-logo{
+.yfooter-logo {
   height: 50px;
   width: 50px;
   border-radius: 10%;
@@ -34,4 +28,8 @@
   height: 3rem;
   margin-block-start: -0.5%;
   margin-left: 0%;
+}
+
+.about-button {
+  margin-left: 80%;
 }
