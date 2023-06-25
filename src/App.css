@@ -2,10 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  background-image: url("./assets/GameVerseHeader.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-badge {
+  margin-left: 47%;
+  background-image: url("./assets/GameVerseHeader.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .foot-navbar {
   display: flex;
+  background-image: url("./assets/GameVerseHeader.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .navbar-text {

@@ -26,21 +26,30 @@ const App = () => {
   console.log(currentUser);
   console.log(games);
 
+  const createGame = (mockGames) => {
+    console.log(mockGames);
+  };
+
   return (
     <>
       <Header currentUser={currentUser} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/gameedit" element={<GameEdit />} />
-          <Route path="/gameindex" element={<GameIndex />} />
-          <Route path="/gamenew" element={<GameNew />} />
-          <Route path="/gameprotectedindex" element={<GameProtectedIndex />} />
-          <Route path="/gameshow" element={<GameShow />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/gameedit" element={<GameEdit />} />
+        <Route path="/gameindex" element={<GameIndex />} />
+        <Route
+          path="/gamenew"
+          element={
+            <GameNew createGame={createGame} currentUser={currentUser} />
+          }
+        />
+        <Route path="/gameprotectedindex" element={<GameProtectedIndex />} />
+        <Route path="/gameshow" element={<GameShow />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes>
       <Footer />
     </>
   );
