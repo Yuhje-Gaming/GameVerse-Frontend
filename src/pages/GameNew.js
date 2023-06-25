@@ -1,15 +1,13 @@
 import React, { useState, currentUser } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, 
-  Row, 
-  Col, 
-  FormGroup, 
-  Label, 
-  Input, 
-  Button 
-} from "reactstrap";
+import { Form, Row, Col, FormGroup, Label, Input, Button } from "reactstrap";
 
 const GameNew = ({ createGame, currentUser }) => {
+  
+  const userPayload = currentUser?.split(".")[1];
+  const baseURL = userPayload.replace("-", "+").replace("_", "/");
+  const authUser = JSON.parse(atob(baseURL));
+
   const [newGame, setNewGame] = useState({
     title: "",
     rating: "",
@@ -19,7 +17,7 @@ const GameNew = ({ createGame, currentUser }) => {
     image: "",
     summary: "",
     release_date: "",
-    user_id: "",
+    user_id: +authUser?.sub,
   });
 
   const handleChange = (e) => {
@@ -28,9 +26,9 @@ const GameNew = ({ createGame, currentUser }) => {
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
-    createGame(newGame)
-    navigate("/gameindex")
-  }
+    createGame(newGame);
+    navigate("/gameindex");
+  };
 
   return (
     <div
@@ -161,4 +159,4 @@ const GameNew = ({ createGame, currentUser }) => {
   );
 };
 
-export default GameNew
+export default GameNew;
