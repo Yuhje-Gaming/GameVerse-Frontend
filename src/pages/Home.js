@@ -63,19 +63,38 @@ const Home = (args) => {
 
   return (
     <>
-      <Carousel activeIndex={activeIndex} next={next} previous={previous} {...args}>
+      <Carousel
+        activeIndex={activeIndex}
+        next={next}
+        previous={previous}
+        {...args}
+      >
         <CarouselIndicators
           items={items}
           activeIndex={activeIndex}
           onClickHandler={goToIndex}
         />
         {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+        />
       </Carousel>
 
       <div>
-        <Button color="primary" outline href="#" onClick={routeChange}>
+        <Button
+          color="primary"
+          outline
+          size="sm"
+          href="#"
+          onClick={routeChange}
+        >
           View All Games
         </Button>
       </div>

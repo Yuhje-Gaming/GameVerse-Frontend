@@ -11,26 +11,23 @@ const Footer = () => {
 
   return (
     <>
-      <Navbar 
-        className="foot-navbar" 
-        color="dark" 
-        fixed="bottom"
-      >
+      <Navbar className="foot-navbar" color="dark" fixed="bottom">
         <NavbarBrand href="/">
           <img src={Ylogo} alt="Ylogo png" className="yfooter-logo" />
-          
-          <Button 
+
+          <Button
             href="/aboutus"
             className="about-button"
-            color="light" 
+            color="light"
+            outline
+            size="sm"
           >
             About Us
           </Button>
-
         </NavbarBrand>
       </Navbar>
     </>
-  )
+  );
 }
 
 export default Footer
