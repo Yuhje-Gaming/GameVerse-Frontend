@@ -1,6 +1,6 @@
-import React, { useState, currentUser } from "react";
-import { 
-  Navbar, 
+import React, { useState } from "react";
+import {
+  Navbar,
   NavbarBrand,
   NavbarToggler,
   Nav,
@@ -19,8 +19,8 @@ import Logout from "../assets/Logout.png"
 import AddNew from "../assets/AddNew.png"
 
 
-function Header({currentUser}) {
-  const [isOpen,setIsOpen] = useState(false)
+function Header({ currentUser, logout }) {
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
 
@@ -84,7 +84,11 @@ function Header({currentUser}) {
 
               <NavItem>
                 <NavLink to="/" className="nav-link">
-                  <img src={Logout} height="15px" />
+                  <img
+                    src={Logout}
+                    height="15px"
+                    onClick={logout}
+                  />
                 </NavLink>
               </NavItem>
 

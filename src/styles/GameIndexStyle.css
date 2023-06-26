@@ -1,0 +1,47 @@
+.containerStyle {
+  background-image: url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.cardStyle {
+  width: 100%;
+  padding: 1rem;
+  background-color: dark;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardStyle img {
+  flex: 1;
+  width: 100%;
+}
+
+.cardStyle h5,
+.cardStyle h6 {
+  margin-top: 0;
+}
+
+.cardStyle .ratingStyle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem;
+  background-color: rgba(3, 157, 16, 0.5);
+  color: white;
+  border-radius: 0.25rem;
+}
+
+.cardStyle .text {
+  color: white;
+  margin-bottom: 0.5rem;
+}
