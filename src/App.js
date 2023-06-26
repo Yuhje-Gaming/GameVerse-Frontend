@@ -78,7 +78,7 @@ const App = () => {
           }
         />
         <Route path="/gameprotectedindex" element={<GameProtectedIndex currentUser={currentUser} games={games} />} />
-        <Route path="/gameshow" element={<GameShow />} />
+        <Route path="/gameshow/:id" element={<GameShow currentUser={currentUser} games={games}/>} />
         <Route path="/login" element={<LogIn login={login} />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/aboutus" element={<AboutUs />} />
