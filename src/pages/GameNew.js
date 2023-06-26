@@ -1,8 +1,6 @@
 import React, { useState, currentUser } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Row, Col, FormGroup, Label, Input, Button } from "reactstrap";
-import mockUsers from "../mockUsers";
-
 
 const GameNew = ({ createGame, currentUser }) => {
 
@@ -15,7 +13,7 @@ const GameNew = ({ createGame, currentUser }) => {
     image: "",
     summary: "",
     release_date: "",
-    user_id: mockUsers[0].id,
+    user_id: currentUser.id,
   });
 
   const handleChange = (e) => {
