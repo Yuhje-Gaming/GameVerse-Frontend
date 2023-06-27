@@ -1,4 +1,4 @@
-import GameShow from "../components/GameShow";
+import GameShow from "../pages/GameShow";
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom'
 
