@@ -1,0 +1,38 @@
+.cards {
+  width: 22rem; /* Increase the width value to make the cards larger */
+  height: 50rem;
+  border: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+
+.boxImg {
+  object-fit: cover;
+  height: 550px;
+}
+
+.containerStyle {
+  background: url("../assets/GameVerseHeader.png") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 90vh; /* Use min-height instead of height to accommodate content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Add padding to create space around the cards */
+}
+
+.cardCol {
+  flex: 1; /* Allow the columns to grow and take up equal space */
+  display: flex;
+  justify-content: center;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* Prevent cards from wrapping to the next row */
+}
