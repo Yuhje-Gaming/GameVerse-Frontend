@@ -48,9 +48,7 @@ const GameEdit = ({ games , updateGame, destroyGame }) => {
 
 
 return(
-  <div
-    className="edit-form"
-  >
+  <div className="edit-form">
     <h3>Edit your game:</h3>
     <br></br>
     <Form>
@@ -165,36 +163,34 @@ return(
             </FormGroup>
           </Col>
         </Row>
-      
-      
-      <div className="button-container">
-        <Button 
-        onClick={handleSubmit} 
-        name="submit"
-        color="success"
-        className="update-game-button"
-        >
-        Update game
-        </Button>
-  
-        <Button
-        color="danger"
-        onClick={() => destroyGame(id)}
-        className="delete-button"
-        >
-        Delete game
-        </Button>
+        <div className="button-container">
+          <Button 
+            onClick={handleSubmit} 
+            name="submit"
+            color="success"
+            className="update-game-button"
+          >
+            Update game
+          </Button>
+    
+          <Button
+            color="danger"
+            onClick={() => destroyGame(id)}
+            className="delete-button"
+          >
+            Delete game
+          </Button>
 
-        <Button 
-        href={`/gameshow/${id}`}
-        name="Back"
-        color="success"
-        className="update-game-button"
-        >  
-        Back
-        </Button>
-        
-      </div>
+          <Button 
+            href={`/gameshow/${id}`}
+            name="Back"
+            color="success"
+            className="update-game-button"
+          >  
+            Back
+          </Button>
+          
+        </div>
       </Form>
   </div>
 )}
