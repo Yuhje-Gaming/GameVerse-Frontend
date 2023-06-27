@@ -1,0 +1,14 @@
+.edit-form {
+  max-width: 1000px;
+  margin-inline-start: 15%;
+  padding-top: 1%;
+  padding-bottom: 10%;
+  padding-right: 3%;
+  margin-left:50%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}

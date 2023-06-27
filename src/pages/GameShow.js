@@ -44,8 +44,7 @@ const GameShow = ({ games }) => {
               <CardSubtitle className="ratingStyle text-white bg-success" tag="h6">
                 <span>{currentGame.rating}</span>
               </CardSubtitle> 
-              <NavLink to={`/gameedit/${currentGame.id}`}></NavLink>
-              <Button class=" text-white  bg-info" >Edit</Button>
+              <Button href={`/gameedit/${currentGame.id}`} class=" text-white  bg-info" >Edit</Button>
             </CardBody>
           </Card>
         </div>
