@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
-  NavbarToggler,
   Nav,
   NavItem,
   Collapse,
@@ -17,12 +16,17 @@ import SignUp from "../assets/SignUp.png"
 import ViewAll from "../assets/ViewAll.png"
 import Logout from "../assets/Logout.png"
 import AddNew from "../assets/AddNew.png"
+import "../styles/Header.css"
+import $ from "jquery"
 
 
 function Header({ currentUser, logout }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = () => setIsOpen(!isOpen)
+  const handleNavTriggerClick = () => {
+    $(".navTrigger").toggleClass("active");
+    setIsOpen(!isOpen)
+  };
 
   return (
     <Navbar className="head-navbar" color="dark" dark>
@@ -64,7 +68,13 @@ function Header({ currentUser, logout }) {
         )}
       </NavbarBrand>
 
-      <NavbarToggler onClick={toggle} />
+      <div className="navTrigger" 
+        onClick={ handleNavTriggerClick }
+        >
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
 
       <Collapse isOpen={isOpen} navbar>
         <Nav className="drop-down" justified>
@@ -72,7 +82,7 @@ function Header({ currentUser, logout }) {
             <>
               <NavItem>
                 <NavLink to="/gameindex" className="nav-link">
-                  <img src={ViewAll} height="15px" />
+                  <img src={ViewAll} height="12px" />
                 </NavLink>
               </NavItem>
 
@@ -102,7 +112,7 @@ function Header({ currentUser, logout }) {
             <>
               <NavItem>
                 <NavLink to="/gameindex" className="nav-link">
-                  <img src={ViewAll} height="15px" />
+                  <img src={ViewAll} height="12px" />
                 </NavLink>
               </NavItem>
 

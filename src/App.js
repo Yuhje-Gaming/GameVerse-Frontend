@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import LogIn from "./components/LogIn";
@@ -17,67 +17,139 @@ import mockUsers from "./mockUsers";
 import mockGames from "./mockGames";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [games, setGames] = useState(mockGames);
+  const [currentUser, setCurrentUser] = useState(null)
+  const [games, setGames] = useState([])
 
-  console.log(currentUser);
-  console.log(games);
+  const navigate = useNavigate()
+  console.log(currentUser)
+  console.log(games)
 
-  const login = (userInfo) => {
-    const { email, password } = userInfo.user;
-    const foundUser = mockUsers.find(
-      (user) => user.email === email && user.password === password
-    );
+  const url = "http://localhost:3000"
 
-    console.log("user", foundUser);
-
-    if (foundUser) {
-      setCurrentUser(foundUser);
-      console.log("login!");
-    } else {
-      console.log("invalid email or pass");
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("token")
+    if(loggedInUser) {
+      setCurrentUser(loggedInUser)
     }
-  };
+    readGames()
+  }, [])
 
-  const signup = (userInfo) => {
-    const { email, password } = userInfo.user;
-    const existingUser = mockUsers.find((user) => user.email === email);
+  const readGames = () => {
+    fetch(`${url}/games`)
+      .then(response => response.json())
+      .then(payload => {
+        setGames(payload)
+      })
+      .catch((error) => console.log(error))
+  }
 
-    if (existingUser) {
-      console.log("User already exists!");
-    } else {
-      const newUser = {
-        id: mockUsers.length + 1,
-        email: email,
-        password: password,
-      };
-      mockUsers.push(newUser);
-      setCurrentUser(newUser);
-      console.log("User signed up success!");
-    }
-  };
+  const createGame = (game) => {
+    fetch(`${url}/games`, {
+      body: JSON.stringify(game),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then((response) => response.json())
+      .then((payload) => readGames())
+      .catch((errors) => console.log("Game create errors:", errors))
+  }
 
-  const logout = () => {
-    setCurrentUser(null);
-  };
-
-  const createGame = (mockGames) => {
-    console.log(mockGames);
-  };
-
-  const updateGame = (updatedGame, id) => {
-    console.log(`Updating game with id ${id}`);
-  };
+  const updateGame = (game, id) => {
+    fetch(`${url}/games/${id}`, {
+      body: JSON.stringify(game),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then((response) => response.json())
+    .then((payload) => updateGame(payload))
+    .catch((errors) => console.log("Game update errors:", errors))
+  }
 
   const destroyGame = (id) => {
-    console.log(`Destroying game with id ${id}`);
-  };
+    fetch(`${url}/games/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then((payload) => {
+      readGames(payload)
+      navigate("/gameindex")
+      })
+      .catch((error) => console.log("Game delete error:", error))
+  }
+
+
+  const login = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+      .then(response => {
+        if(!response.ok) {
+          throw Error(response.statusText)
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then(payload => {
+        setCurrentUser(payload)
+      })
+      .catch(error => console.log("login errors: ", error))
+  }
+
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then(payload => {
+        setCurrentUser(payload)
+      })
+      .catch(error => console.log("login errors: ", error))
+  }
+
+  const logout = () => {
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": 'application/json',
+        "Authorization": localStorage.getItem("token") //retrieve the token 
+      },
+      method: 'DELETE'
+    })
+      .then(payload => {
+        localStorage.removeItem("token")  // remove the token
+        setCurrentUser(null)
+      })
+      .catch(error => console.log("log out errors: ", error))
+  }
+
 
   return (
     <>
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home readGames={readGames} games={games}/>} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/gameedit/:id"

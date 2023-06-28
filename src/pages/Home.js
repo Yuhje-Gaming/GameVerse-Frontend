@@ -8,9 +8,10 @@ import {
   Button,
 } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
-import mockGames from '../mockGames';
+import "../styles/Home.css"
+import Homebg from '../assets/Homebg.mp4'
 
-const Home = (args) => {
+const Home = ({ games, ...args }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -37,7 +38,7 @@ const Home = (args) => {
     navigate(path);
   };
 
-  const items = mockGames.map((game) => ({
+  const items = games.map((game) => ({
     src: game.image,
     altText: game.title,
     caption: game.title,
@@ -52,43 +53,67 @@ const Home = (args) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+
+        <img 
+          className='carousel-img'
+          src={item.src} 
+          alt={item.altText} 
+          href={`/gameshow/${items.key}`}
+        />
+
         <CarouselCaption
+          className='carousel-text'
           captionText={item.genre}
           captionHeader={item.caption}
         />
+        
       </CarouselItem>
-    );
-  });
+    )
+  })
 
   return (
-    <>
-      <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-        {...args}
-      >
-        <CarouselIndicators
-          items={items}
-          activeIndex={activeIndex}
-          onClickHandler={goToIndex}
-        />
-        {slides}
-        <CarouselControl
-          direction="prev"
-          directionText="Previous"
-          onClickHandler={previous}
-        />
-        <CarouselControl
-          direction="next"
-          directionText="Next"
-          onClickHandler={next}
-        />
-      </Carousel>
 
-      <div>
+    <div className='home-page'>
+
+      <div className='overlay'></div>
+
+      <video 
+        className='home-vbg'
+        src={Homebg} 
+        autoPlay 
+        loop 
+        muted 
+      />
+
+      <div className='home-carousel'>
+        <Carousel
+          activeIndex={activeIndex}
+          next={next}
+          previous={previous}
+          {...args}
+        >
+          <CarouselIndicators
+            items={items}
+            activeIndex={activeIndex}
+            onClickHandler={goToIndex}
+          />
+          {slides}
+          <CarouselControl
+            direction="prev"
+            directionText="Previous"
+            onClickHandler={previous}
+          />
+          <CarouselControl
+            direction="next"
+            directionText="Next"
+            onClickHandler={next}
+          />
+        </Carousel>
+      </div>
+
+      <div className='btn-cotainer'>
         <Button
+         className='home-view-btn'
           color="primary"
           outline
           size="sm"
@@ -98,8 +123,11 @@ const Home = (args) => {
           View All Games
         </Button>
       </div>
-    </>
-  );
-};
+
+    </div>
+
+  )
+
+}
 
 export default Home;
