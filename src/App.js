@@ -13,8 +13,6 @@ import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
-import mockUsers from "./mockUsers";
-import mockGames from "./mockGames";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
