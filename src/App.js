@@ -24,43 +24,53 @@ const App = () => {
   console.log(games);
 
   const login = (userInfo) => {
-    const { email, password } = userInfo.user
-    const foundUser = mockUsers.find((user) => user.email === email && user.password === password)
+    const { email, password } = userInfo.user;
+    const foundUser = mockUsers.find(
+      (user) => user.email === email && user.password === password
+    );
 
-    console.log("user", foundUser)
+    console.log("user", foundUser);
 
     if (foundUser) {
-      setCurrentUser(foundUser)
-      console.log('login!')
+      setCurrentUser(foundUser);
+      console.log("login!");
     } else {
-      console.log('invalid email or pass')
+      console.log("invalid email or pass");
     }
-  }
+  };
 
   const signup = (userInfo) => {
-    const { email, password } = userInfo.user
-    const existingUser = mockUsers.find((user) => user.email === email)
+    const { email, password } = userInfo.user;
+    const existingUser = mockUsers.find((user) => user.email === email);
 
     if (existingUser) {
-      console.log('User already exists!')
+      console.log("User already exists!");
     } else {
       const newUser = {
         id: mockUsers.length + 1,
         email: email,
-        password: password
-      }
-      mockUsers.push(newUser)
-      setCurrentUser(newUser)
-      console.log('User signed up success!')
+        password: password,
+      };
+      mockUsers.push(newUser);
+      setCurrentUser(newUser);
+      console.log("User signed up success!");
     }
-  }
+  };
 
   const logout = () => {
-    setCurrentUser(null)
-  }
+    setCurrentUser(null);
+  };
 
   const createGame = (mockGames) => {
     console.log(mockGames);
+  };
+
+  const updateGame = (updatedGame, id) => {
+    console.log(`Updating game with id ${id}`);
+  };
+
+  const destroyGame = (id) => {
+    console.log(`Destroying game with id ${id}`);
   };
 
   return (
@@ -69,7 +79,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/gameedit" element={<GameEdit />} />
+        <Route
+          path="/gameedit/:id"
+          element={
+            <GameEdit
+              games={games}
+              updateGame={updateGame}
+              destroyGame={destroyGame}
+            />
+          }
+        />
         <Route path="/gameindex" element={<GameIndex games={games} />} />
         <Route
           path="/gamenew"
@@ -77,8 +96,16 @@ const App = () => {
             <GameNew createGame={createGame} currentUser={currentUser} />
           }
         />
-        <Route path="/gameprotectedindex" element={<GameProtectedIndex currentUser={currentUser} games={games} />} />
-        <Route path="/gameshow/:id" element={<GameShow currentUser={currentUser} games={games}/>} />
+        <Route
+          path="/gameprotectedindex"
+          element={
+            <GameProtectedIndex currentUser={currentUser} games={games} />
+          }
+        />
+        <Route
+          path="/gameshow/:id"
+          element={<GameShow currentUser={currentUser} games={games} />}
+        />
         <Route path="/login" element={<LogIn login={login} />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/aboutus" element={<AboutUs />} />
