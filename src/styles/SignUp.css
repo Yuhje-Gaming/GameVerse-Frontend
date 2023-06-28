@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+.signup-text {
+    font-family: 'Space Grotesk', sans-serif;
+    text-shadow: 2px 4px 4px rgba(255, 255, 255, 0.7);
+    font-size: 2em;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(gold,rgba(255, 217, 0, 0.514));
+    background-size: 100% 10px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+.signup-text:hover {
+    background-size: 100% 100%;
+    background-position: 0% 100%;
+    transition: background-position .7s, background-size .5s ease-in-out;
+}
+
+
+.signup-form {
+    display: flex;
+    color: white;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+.animate-text1 {
+    font-family: 'Shadows Into Light Two', cursive;
+    background-color: rgba(36, 43, 56, 0.7);
+    border-radius: 2rem;
+    font-size: 2rem;
+    margin-top: 2%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.signup-page {
+    background-image:
+        linear-gradient(45deg,
+            rgba(245, 70, 66, 0.35),
+            rgba(8, 83, 156, 0.15)),
+        url(../assets/Signupbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(36, 43, 56, 0.7);
+    display: block;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    position: absolute;
+}

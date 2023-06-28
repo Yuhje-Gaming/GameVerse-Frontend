@@ -1,4 +1,4 @@
-import React, { useState, currentUser } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Row, Col, FormGroup, Label, Input, Button } from "reactstrap";
 
@@ -35,6 +35,7 @@ const GameNew = ({ createGame, currentUser }) => {
         backgroundRepeat: "no-repeat",
       }}
     >
+
       <Form>
         <Row>
           <Col md={6}>
