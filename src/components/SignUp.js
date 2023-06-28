@@ -66,7 +66,7 @@ const SignUp = ({ signup }) => {
               <Button
                 type="submit"
               >
-                Submit
+                SignUp
               </Button>
             </Col>
 
