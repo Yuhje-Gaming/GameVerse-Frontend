@@ -28,6 +28,7 @@ const GameIndex = ({ games }) => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search games"
+            className="search-input"
           />
         </div>
         <div className="cardGrid">

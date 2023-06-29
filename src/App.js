@@ -13,35 +13,33 @@ import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
-import mockGames from "./mockGames";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [games, setGames] = useState(mockGames);
+  const [currentUser, setCurrentUser] = useState(null)
+  const [games, setGames] = useState([])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  console.log(currentUser)
+  console.log(games)
 
-  const url = "http://localhost:3000";
+  const url = "https://gameverse-h8sm.onrender.com"
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("token");
+    const loggedInUser = localStorage.getItem("token")
     if (loggedInUser) {
-setCurrentUser(loggedInUser);
+      setCurrentUser(loggedInUser)
     }
-    readGames();
-  }, []);
+    readGames()
+  }, [])
 
-  const readGames = (searchQuery = "") => {
-    const apiUrl = `${url}/games?search=${encodeURIComponent(searchQuery)}`;
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((payload) => {
-        setGames(payload);
+  const readGames = () => {
+    fetch(`${url}/games`)
+      .then(response => response.json())
+      .then(payload => {
+        setGames(payload)
       })
-      .catch((error) => console.log(error));
-  };
-
+      .catch((error) => console.log(error))
+  }
 
   const createGame = (game) => {
     fetch(`${url}/games`, {
@@ -64,9 +62,9 @@ setCurrentUser(loggedInUser);
       },
       method: "PATCH"
     })
-    .then((response) => response.json())
-    .then((payload) => updateGame(payload))
-    .catch((errors) => console.log("Game update errors:", errors))
+      .then((response) => response.json())
+      .then((payload) => updateGame(payload))
+      .catch((errors) => console.log("Game update errors:", errors))
   }
 
   const destroyGame = (id) => {
@@ -78,8 +76,8 @@ setCurrentUser(loggedInUser);
     })
       .then((response) => response.json())
       .then((payload) => {
-      readGames(payload)
-      navigate("/gameindex")
+        readGames(payload)
+        navigate("/gameindex")
       })
       .catch((error) => console.log("Game delete error:", error))
   }
@@ -95,7 +93,7 @@ setCurrentUser(loggedInUser);
       method: 'POST'
     })
       .then(response => {
-        if(!response.ok) {
+        if (!response.ok) {
           throw Error(response.statusText)
         }
         localStorage.setItem("token", response.headers.get("Authorization"))
@@ -149,7 +147,7 @@ setCurrentUser(loggedInUser);
     <>
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home readGames={readGames} games={games}/>} />
+        <Route path="/" element={<Home readGames={readGames} games={games} />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/gameedit/:id"
