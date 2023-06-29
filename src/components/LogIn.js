@@ -22,11 +22,9 @@ const LogIn = ({ login }) => {
 
   return (
     <div className="login-page">
-
       <div className="login-form">
-
         <div className="login-text">
-          User Login
+         USER LOGIN
         </div>
 
         <Form onSubmit={handleSubmit}>
@@ -92,10 +90,9 @@ const LogIn = ({ login }) => {
           initial={{ opacity: 1, scale: 0.5 }}
           whileHover={{ scale: 2 }}
         >
-          I miss you.... I wish you come more often..
+          Welcome to the login page!
         </motion.h3>
-      </div>`
-
+      </div>
     </div>
   )
 }

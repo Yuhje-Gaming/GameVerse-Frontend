@@ -45,11 +45,11 @@ const GameIndex = ({ games }) => {
                     <br />
                     <span className="ratingStyle">{game.rating}</span>
                   </CardSubtitle>
+                    <div className="click-btn-container " tag="h6">
                   <NavLink to={`/gameshow/${game.id}`}>
-                    <div className="mb-2 text-white" tag="h6">
                       Click to view
-                    </div>
                   </NavLink>
+                    </div>
                 </CardBody>
               </Card>
             );

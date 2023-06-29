@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import Carousel from "./components/Carousel.js";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import LogIn from "./components/LogIn";
@@ -15,139 +16,141 @@ import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [games, setGames] = useState([])
+  const [currentUser, setCurrentUser] = useState(null);
+  const [games, setGames] = useState([]);
 
-  const navigate = useNavigate()
-  console.log(currentUser)
-  console.log(games)
+  const navigate = useNavigate();
 
-  const url = "https://gameverse-h8sm.onrender.com"
+  const url = "http://localhost:3000";
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("token")
+    const loggedInUser = localStorage.getItem("token");
     if (loggedInUser) {
-      setCurrentUser(loggedInUser)
+      setCurrentUser(loggedInUser);
     }
-    readGames()
-  }, [])
+    readGames();
+  }, []);
 
-  const readGames = () => {
-    fetch(`${url}/games`)
-      .then(response => response.json())
-      .then(payload => {
-        setGames(payload)
-      })
-      .catch((error) => console.log(error))
-  }
+  const readGames = async () => {
+    try {
+      const response = await fetch(`${url}/games`);
+      const payload = await response.json();
+      setGames(payload);
+    } catch (error) {
+      console.error("Error reading games:", error);
+    }
+  };
 
   const createGame = (game) => {
     fetch(`${url}/games`, {
       body: JSON.stringify(game),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "POST"
+      method: "POST",
     })
       .then((response) => response.json())
-      .then((payload) => readGames())
-      .catch((errors) => console.log("Game create errors:", errors))
-  }
-
+      .then((payload) => {
+        readGames();
+        setGames([...games, payload]); // Add the newly created game to the games state
+      })
+      .catch((errors) => console.log("Game create errors:", errors));
+  };
   const updateGame = (game, id) => {
     fetch(`${url}/games/${id}`, {
       body: JSON.stringify(game),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "PATCH"
+      method: "PATCH",
     })
       .then((response) => response.json())
       .then((payload) => updateGame(payload))
-      .catch((errors) => console.log("Game update errors:", errors))
-  }
-
+      .catch((errors) => console.log("Game update errors:", errors));
+  };
   const destroyGame = (id) => {
     fetch(`${url}/games/${id}`, {
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      method: "DELETE"
+      method: "DELETE",
     })
       .then((response) => response.json())
       .then((payload) => {
-        readGames(payload)
-        navigate("/gameindex")
+        readGames(payload);
+        navigate("/gameindex");
       })
-      .catch((error) => console.log("Game delete error:", error))
-  }
-
+      .catch((error) => console.log("Game delete error:", error));
+  };
 
   const login = (userInfo) => {
     fetch(`${url}/login`, {
       body: JSON.stringify(userInfo),
       headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json'
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      method: 'POST'
+      method: "POST",
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw Error(response.statusText)
+          throw Error(response.statusText);
         }
-        localStorage.setItem("token", response.headers.get("Authorization"))
-        return response.json()
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
       })
-      .then(payload => {
-        setCurrentUser(payload)
+      .then((payload) => {
+        setCurrentUser({ ...payload, email: userInfo.email });
       })
-      .catch(error => console.log("login errors: ", error))
-  }
+      .catch((error) => console.log("login errors: ", error));
+  };
 
   const signup = (userInfo) => {
     fetch(`${url}/signup`, {
       body: JSON.stringify(userInfo),
       headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json'
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      method: 'POST'
+      method: "POST",
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
-          throw Error(response.statusText)
+          throw Error(response.statusText);
         }
-        localStorage.setItem("token", response.headers.get("Authorization"))
-        return response.json()
+        localStorage.setItem("token", response.headers.get("Authorization"));
+        return response.json();
       })
-      .then(payload => {
-        setCurrentUser(payload)
+      .then((payload) => {
+        setCurrentUser({ ...payload, email: userInfo.email });
       })
-      .catch(error => console.log("login errors: ", error))
-  }
-
+      .catch((error) => console.log("login errors: ", error));
+  };
   const logout = () => {
     fetch(`${url}/logout`, {
       headers: {
-        "Content-Type": 'application/json',
-        "Authorization": localStorage.getItem("token") //retrieve the token 
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"), 
       },
-      method: 'DELETE'
+      method: "DELETE",
     })
-      .then(payload => {
-        localStorage.removeItem("token")  // remove the token
-        setCurrentUser(null)
+      .then((payload) => {
+        localStorage.removeItem("token");
+        setCurrentUser(null);
       })
-      .catch(error => console.log("log out errors: ", error))
-  }
-
-
+      .catch((error) => console.log("log out errors: ", error));
+  };
   return (
     <>
-      <Header currentUser={currentUser} logout={logout} />
+      <Header 
+        currentUser={currentUser} 
+        logout={logout} 
+      />
       <Routes>
-        <Route path="/" element={<Home readGames={readGames} games={games} />} />
+        <Route
+          path="/"
+          element={<Home readGames={readGames} games={games} />}
+        />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/gameedit/:id"
