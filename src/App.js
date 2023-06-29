@@ -21,7 +21,7 @@ const App = () => {
 
   const navigate = useNavigate();
 
-  const url = "http://localhost:3000";
+  const url = "https://gameverse-h8sm.onrender.com";
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token");
