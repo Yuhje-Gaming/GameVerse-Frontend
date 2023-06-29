@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, Container } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import "../styles/GameIndexStyle.css";
@@ -12,11 +12,26 @@ const GameIndex = ({ games }) => {
     padding: "2rem",
   };
 
+  const [search, setSearch] = useState("");
+
+  const filteredGames = games.filter((game) => {
+    const searchableString = `${game.name} ${game.title} ${game.platform}`.toLowerCase();
+    return searchableString.includes(search.toLowerCase());
+  });
+
   return (
     <main style={containerStyle}>
       <Container>
+        <div className="search-container">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search games"
+          />
+        </div>
         <div className="cardGrid">
-          {games?.slice(0, 10).map((game, index) => {
+          {filteredGames.slice(0, 10).map((game, index) => {
             return (
               <Card className="cardStyle" color="dark" key={index} >
                 <img className="cardStyle img" alt={`profile of a game named ${game.name}`} src={game.image} />

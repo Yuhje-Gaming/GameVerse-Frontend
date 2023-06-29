@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -13,33 +13,35 @@ import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import mockGames from "./mockGames";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [games, setGames] = useState([])
+  const [currentUser, setCurrentUser] = useState(null);
+  const [games, setGames] = useState(mockGames);
 
-  const navigate = useNavigate()
-  console.log(currentUser)
-  console.log(games)
+  const navigate = useNavigate();
 
-  const url = "http://gameverse-h8sm.onrender.com"
+  const url = "http://localhost:3000";
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("token")
-    if(loggedInUser) {
-      setCurrentUser(loggedInUser)
+    const loggedInUser = localStorage.getItem("token");
+    if (loggedInUser) {
+setCurrentUser(loggedInUser);
     }
-    readGames()
-  }, [])
+    readGames();
+  }, []);
 
-  const readGames = () => {
-    fetch(`${url}/games`)
-      .then(response => response.json())
-      .then(payload => {
-        setGames(payload)
+  const readGames = (searchQuery = "") => {
+    const apiUrl = `${url}/games?search=${encodeURIComponent(searchQuery)}`;
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((payload) => {
+        setGames(payload);
       })
-      .catch((error) => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
+
 
   const createGame = (game) => {
     fetch(`${url}/games`, {
