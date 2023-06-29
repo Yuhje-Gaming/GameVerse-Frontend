@@ -45,3 +45,14 @@
   color: white;
   margin-bottom: 0.5rem;
 }
+
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  border: 2px solid #1ef301;
+  padding: 0.5rem;
+}

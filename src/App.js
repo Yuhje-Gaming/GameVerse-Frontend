@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -26,7 +26,7 @@ const App = () => {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token")
-    if(loggedInUser) {
+    if (loggedInUser) {
       setCurrentUser(loggedInUser)
     }
     readGames()
@@ -62,9 +62,9 @@ const App = () => {
       },
       method: "PATCH"
     })
-    .then((response) => response.json())
-    .then((payload) => updateGame(payload))
-    .catch((errors) => console.log("Game update errors:", errors))
+      .then((response) => response.json())
+      .then((payload) => updateGame(payload))
+      .catch((errors) => console.log("Game update errors:", errors))
   }
 
   const destroyGame = (id) => {
@@ -76,8 +76,8 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((payload) => {
-      readGames(payload)
-      navigate("/gameindex")
+        readGames(payload)
+        navigate("/gameindex")
       })
       .catch((error) => console.log("Game delete error:", error))
   }
@@ -93,7 +93,7 @@ const App = () => {
       method: 'POST'
     })
       .then(response => {
-        if(!response.ok) {
+        if (!response.ok) {
           throw Error(response.statusText)
         }
         localStorage.setItem("token", response.headers.get("Authorization"))
@@ -147,7 +147,7 @@ const App = () => {
     <>
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home readGames={readGames} games={games}/>} />
+        <Route path="/" element={<Home readGames={readGames} games={games} />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/gameedit/:id"
