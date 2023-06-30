@@ -18,14 +18,6 @@ function Header({ currentUser, logout }) {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("currentUser");
-    if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
-    }
-  }, [])
-
-
   return (
     <Navbar className="head-navbar" color="transparent">
       <NavbarBrand href="/" className="navbar-brand-centered">
