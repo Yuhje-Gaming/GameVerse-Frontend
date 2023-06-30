@@ -1,3 +1,6 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
+
 .containerStyle {
   background-image: url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80');
   background-size: cover;
@@ -28,10 +31,12 @@
 
 .cardStyle h5,
 .cardStyle h6 {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   margin-top: 0;
 }
 
 .cardStyle .ratingStyle {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -42,6 +47,7 @@
 }
 
 .cardStyle .text {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   color: white;
   margin-bottom: 0.5rem;
 }
@@ -53,6 +59,22 @@
 }
 
 .search-input {
-  border: 2px solid #1ef301;
+  border: 2px solid #ff0505;
   padding: 0.5rem;
+}
+
+
+.click-btn-container{
+  position: bottom right;
+  width: 100%;
+  top: calc(50% + 14rem); /* Adjust the value 14rem so that the button is positioned under the carousel */
+  text-align: center;
+  bottom: 0;
+}
+
+.click-btn {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  background-color: rgb(7, 10, 82);
+  display: inline-block;
 }

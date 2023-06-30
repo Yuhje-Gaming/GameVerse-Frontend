@@ -21,11 +21,9 @@ const SignUp = ({ signup }) => {
 
   return (
     <div className="signup-page">
-
-      <div className="signup-form">
-        
+      <div className="signup-form">    
         <div className="signup-text">
-          User SignUp
+         USER SIGNUP
         </div>
 
         <Form onSubmit={handleSubmit}>
@@ -35,7 +33,7 @@ const SignUp = ({ signup }) => {
                   className="visually-hidden"
                   for="exampleEmail"
                 >
-                  Email
+                  EMAIL
                 </Label>
               <Input
                 id="exampleEmail"
@@ -78,21 +76,20 @@ const SignUp = ({ signup }) => {
 
       <div>
         <motion.h3 className="animate-text1"
-          animate={{ 
-          x: [200 , 30, 0],
-          y: [400, 350, 300],
+          animate={{ x: [0, 100, -25],
+          y: [0, 50, 0],
           opacity: 2, 
           scale: 1 
           }}
           transition={{
             duration: 10,
             delay: 0,
-            ease: [0.5, 0.71, 1, 1.01],
+            ease: [0.5, 0.71, 1, 1.5],
           }}
           initial={{ opacity: 1, scale: 0.5 }}
           whileHover={{ scale: 2 }}
         >
-          Join the fine GameVerse with me!!
+          Join the fine GameVerse!
         </motion.h3>
       </div>
 

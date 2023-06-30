@@ -1,109 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
   Nav,
   NavItem,
   Collapse,
-  NavbarText,
-  Badge,
-} from "reactstrap"
-import { NavLink } from "react-router-dom"
-import GameVerse from "../assets/GameVerse.gif"
-import GameverseFont from "../assets/GameverseFont.png"
-import Login from "../assets/Login.png"
-import SignUp from "../assets/SignUp.png"
-import ViewAll from "../assets/ViewAll.png"
-import Logout from "../assets/Logout.png"
-import AddNew from "../assets/AddNew.png"
-import "../styles/Header.css"
-import $ from "jquery"
-
+} from "reactstrap";
+import { NavLink } from "react-router-dom";
+import "../styles/Header.css";
+import $ from "jquery";
 
 function Header({ currentUser, logout }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleNavTriggerClick = () => {
     $(".navTrigger").toggleClass("active");
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("currentUser");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, [])
+
+
   return (
-    <Navbar className="head-navbar" color="dark" dark>
-      <NavbarBrand href="/">
-        {currentUser && (
-          <>
-            <img
-              src={GameVerse}
-              alt="Game Verse logo gif"
-              className="gameverse-logo"
-            />
-
-            <img
-              src={GameverseFont}
-              alt="Gameverse fonts"
-              className="gameverse-font"
-            />
-
-            <Badge className="header-badge" color="dark" >
-              Welcome, {currentUser.email}!
-            </Badge>
-          </>
-        )}
-
-        {!currentUser && (
-          <>
-            <img
-              src={GameVerse}
-              alt="Game Verse logo gif"
-              className="gameverse-logo"
-            />
-
-            <img
-              src={GameverseFont}
-              alt="Gameverse fonts"
-              className="gameverse-font"
-            />
-          </>
-        )}
+    <Navbar className="head-navbar" color="transparent">
+      <NavbarBrand href="/" className="navbar-brand-centered">
+        <div className="header-with-gradient-line"></div>
+        <div className="logo-container">
+          <h1 className="navbar-gameverse">GAME VERSE</h1>
+            {currentUser && (
+              <>
+                <h5 className="login-email">Welcome, {currentUser.email}!</h5>
+              </>
+              )}
+            {!currentUser && (
+            <>
+            </>
+            )}
+            </div>
       </NavbarBrand>
 
-      <div className="navTrigger" 
-        onClick={ handleNavTriggerClick }
-        >
+      <div className="navTrigger" onClick={handleNavTriggerClick}>
         <i></i>
         <i></i>
         <i></i>
       </div>
-
       <Collapse isOpen={isOpen} navbar>
         <Nav className="drop-down" justified>
           {currentUser && (
             <>
               <NavItem>
-                <NavLink to="/gameindex" className="nav-link">
-                  <img src={ViewAll} height="12px" />
+                <NavLink to="/gameindex" className="nav-link head-text">
+                  VIEW GAMES
                 </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink to="/gamenew" className="nav-link">
-                  <img src={AddNew} height="15px" />
+                <NavLink to="/gamenew" className="nav-link head-text">
+                  ADD NEW GAME
                 </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink to="/" className="nav-link">
-                  <img
-                    src={Logout}
-                    height="15px"
-                    onClick={logout}
-                  />
+                <NavLink to="/" className="nav-link head-text" onClick={logout}>
+                  LOGOUT
                 </NavLink>
-              </NavItem>
-
-              <NavItem>
-                <NavbarText>{currentUser.username}</NavbarText>
               </NavItem>
             </>
           )}
@@ -111,31 +76,28 @@ function Header({ currentUser, logout }) {
           {!currentUser && (
             <>
               <NavItem>
-                <NavLink to="/gameindex" className="nav-link">
-                  <img src={ViewAll} height="12px" />
+                <NavLink to="/gameindex" className="nav-link head-text">
+                  VIEW GAMES
                 </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink to="/login" className="nav-link">
-                  <img src={Login} height="15px" />
+                <NavLink to="/login" className="nav-link head-text">
+                  LOGIN
                 </NavLink>
               </NavItem>
 
               <NavItem>
-                <NavLink to="/signup" className="nav-link">
-                  <img src={SignUp} height="15px" />
+                <NavLink to="/signup" className="nav-link head-text">
+                  SIGNUP
                 </NavLink>
               </NavItem>
             </>
           )}
         </Nav>
-
-        <NavbarText class="navbar-text">Work in progress!</NavbarText>
       </Collapse>
     </Navbar>
   );
 }
 
-
-export default Header;
+export default Header; 

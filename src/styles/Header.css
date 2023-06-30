@@ -1,169 +1,219 @@
+/* Import custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Ubuntu+Mono&display=swap');
+
+/* Main Header Styles */
+
+/* Styling for the header navigation bar */
 .head-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    background-image: url("../assets/GameVerseHeader.png");
-    background-size: cover;
-    background-position: center;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../assets/GameVerseHeader.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.header-badge {
-    margin-left: 47%;
-    background-image: url("../assets/GameVerseHeader.png");
-    background-size: cover;
-    background-position: center;
-}
-
+/* Styling for the logo inside the header */
 .gameverse-logo {
-  height: 55px;
-  width: 55px;
+  height: 70px;
+  width: 80px;
   margin-left: 5%;
   border-radius: 20%;
 }
 
-.navbar-text {
-    align-items: center;
+/* Centrally aligns brand text in the navigation bar */
+.navbar-brand-centered {
+  display: flex;
+  flex: 1;
+  justify-content: center;
 }
 
-.gameverse-font {
-  max-width: 50%;
-  max-height: 100%;
-  margin-inline-start: 10%;
-  margin-inline-end: 20%;
+/* Font styling for Gameverse text in navigation bar */
+.navbar-gameverse{
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  font-size: 40px;
 }
 
+/* Heading text style inside header */
+.head-text {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  font-size: 15px;
+}
+
+/* Subheading style in header */
+.login-email{
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  font-size: 16px;
+}
+
+/* Styles for animated gradient line under header */
+.header-with-gradient-line {
+  position: relative;
+  display: contents;
+}
+
+/* Keyframes for animated gradient line */
+@keyframes slideGradient {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Adds the animated gradient line under the header */
+.header-with-gradient-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #f90202) repeat-y;
+  background-size: 50% 100%;
+  animation: slideGradient 20s linear infinite;
+}
+
+/* Burger Menu Styles (Hamburger Icon) */
+
+/* Styles for the menu trigger (hamburger icon) */
 .navTrigger {
-    cursor: pointer;
-    width: 30px; 
-    height: 25px;
-    margin: auto;
-    margin-right: 5%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  margin: auto;
+  margin-right: 5%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
+/* Styles for lines inside the hamburger icon */
 .navTrigger i {
-    background-color: #fff;
-    border-radius: 2px;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 4px;
-    -webkit-animation: outT 0.8s backwards;
-    animation: outT 0.8s backwards;
-    -webkit-animation-direction: reverse;
-    animation-direction: reverse;
-  }
+  background-color: #fff;
+  border-radius: 2px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  -webkit-animation: outT 0.8s backwards;
+  animation: outT 0.8s backwards;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+}
 
-  .navTrigger.active i:nth-child(1) {
-    -webkit-animation: inT 0.8s forwards;
-    animation: inT 0.8s forwards;
-  }
+.navTrigger.active i:nth-child(1) {
+  -webkit-animation: inT 0.8s forwards;
+  animation: inT 0.8s forwards;
+}
 
-  .navTrigger.active i:nth-child(2) {
-    -webkit-animation: inM 0.8s forwards;
-    animation: inM 0.8s forwards;
-  }
+.navTrigger.active i:nth-child(2) {
+  -webkit-animation: inM 0.8s forwards;
+  animation: inM 0.8s forwards;
+}
 
-  .navTrigger.active i:nth-child(3) {
-    -webkit-animation: inBtm 0.8s forwards;
-    animation: inBtm 0.8s forwards;
+.navTrigger.active i:nth-child(3) {
+  -webkit-animation: inBtm 0.8s forwards;
+  animation: inBtm 0.8s forwards;
+}
+  i:nth-child(1) {
+    -webkit-animation:outT 0.8s backwards;
+    animation:outT 0.8s backwards;
+    -webkit-animation-direction:reverse;
+    animation-direction:reverse;
   }
+  i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation:outM 0.8s backwards;
+    animation:outM 0.8s backwards;
+    -webkit-animation-direction:reverse;
+    animation-direction:reverse;
+  }
+  i:nth-child(3) {
+    -webkit-animation:outBtm 0.8s backwards;
+    animation:outBtm 0.8s backwards;
+    -webkit-animation-direction:reverse;
+    animation-direction:reverse;
+  }
+  &.active {
     i:nth-child(1) {
-      -webkit-animation:outT 0.8s backwards;
-      animation:outT 0.8s backwards;
-      -webkit-animation-direction:reverse;
-      animation-direction:reverse;
+      -webkit-animation:inT 0.8s forwards;
+      animation:inT 0.8s forwards;
     }
     i:nth-child(2) {
-      margin: 5px 0;
-      -webkit-animation:outM 0.8s backwards;
-      animation:outM 0.8s backwards;
-      -webkit-animation-direction:reverse;
-      animation-direction:reverse;
+      -webkit-animation:inM 0.8s forwards;
+      animation:inM 0.8s forwards;
     }
     i:nth-child(3) {
-      -webkit-animation:outBtm 0.8s backwards;
-      animation:outBtm 0.8s backwards;
-      -webkit-animation-direction:reverse;
-      animation-direction:reverse;
+      -webkit-animation:inBtm 0.8s forwards;
+      animation:inBtm 0.8s forwards;
     }
-    &.active {
-      i:nth-child(1) {
-        -webkit-animation:inT 0.8s forwards;
-        animation:inT 0.8s forwards;
-      }
-      i:nth-child(2) {
-        -webkit-animation:inM 0.8s forwards;
-        animation:inM 0.8s forwards;
-      }
-      i:nth-child(3) {
-        -webkit-animation:inBtm 0.8s forwards;
-        animation:inBtm 0.8s forwards;
-      }
-    }
-
-  @-webkit-keyframes inM{
-  50%{-webkit-transform:rotate(0deg);}
-  100%{-webkit-transform:rotate(45deg);}
-  }
-  @keyframes inM{
-  50%{transform:rotate(0deg);}
-  100%{transform:rotate(45deg);}
   }
 
-  @-webkit-keyframes outM{
-  50%{-webkit-transform:rotate(0deg);}
-  100%{-webkit-transform:rotate(45deg);}
-  }
-  @keyframes outM{
-  50%{transform:rotate(0deg);}
-  100%{transform:rotate(45deg);}
-  }
+@-webkit-keyframes inM{
+50%{-webkit-transform:rotate(0deg);}
+100%{-webkit-transform:rotate(45deg);}
+}
+@keyframes inM{
+50%{transform:rotate(0deg);}
+100%{transform:rotate(45deg);}
+}
 
-  @-webkit-keyframes inT{
-  0%{-webkit-transform: translateY(0px) rotate(0deg);}
-  50%{-webkit-transform: translateY(9px) rotate(0deg);}
-  100%{-webkit-transform: translateY(9px) rotate(135deg);}
-  }
-  @keyframes inT{
-  0%{transform: translateY(0px) rotate(0deg);}
-  50%{transform: translateY(9px) rotate(0deg);}
-  100%{transform: translateY(9px) rotate(135deg);}
-  }
+@-webkit-keyframes outM{
+50%{-webkit-transform:rotate(0deg);}
+100%{-webkit-transform:rotate(45deg);}
+}
+@keyframes outM{
+50%{transform:rotate(0deg);}
+100%{transform:rotate(45deg);}
+}
 
-  @-webkit-keyframes outT{
-  0%{-webkit-transform: translateY(0px) rotate(0deg);}
-  50%{-webkit-transform: translateY(9px) rotate(0deg);}
-  100%{-webkit-transform: translateY(9px) rotate(135deg);}
-  }
-  @keyframes outT{
-  0%{transform: translateY(0px) rotate(0deg);}
-  50%{transform: translateY(9px) rotate(0deg);}
-  100%{transform: translateY(9px) rotate(135deg);}
-  }
+@-webkit-keyframes inT{
+0%{-webkit-transform: translateY(0px) rotate(0deg);}
+50%{-webkit-transform: translateY(9px) rotate(0deg);}
+100%{-webkit-transform: translateY(9px) rotate(135deg);}
+}
+@keyframes inT{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(9px) rotate(0deg);}
+100%{transform: translateY(9px) rotate(135deg);}
+}
 
-  @-webkit-keyframes inBtm{
-  0%{-webkit-transform: translateY(0px) rotate(0deg);}
-  50%{-webkit-transform: translateY(-9px) rotate(0deg);}
-  100%{-webkit-transform: translateY(-9px) rotate(135deg);}
-  }
-  @keyframes inBtm{
-  0%{transform: translateY(0px) rotate(0deg);}
-  50%{transform: translateY(-9px) rotate(0deg);}
-  100%{transform: translateY(-9px) rotate(135deg);}
-  }
+@-webkit-keyframes outT{
+0%{-webkit-transform: translateY(0px) rotate(0deg);}
+50%{-webkit-transform: translateY(9px) rotate(0deg);}
+100%{-webkit-transform: translateY(9px) rotate(135deg);}
+}
+@keyframes outT{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(9px) rotate(0deg);}
+100%{transform: translateY(9px) rotate(135deg);}
+}
 
-  @-webkit-keyframes outBtm{
-  0%{-webkit-transform: translateY(0px) rotate(0deg);}
-  50%{-webkit-transform: translateY(-9px) rotate(0deg);}
-  100%{-webkit-transform: translateY(-9px) rotate(135deg);}
-  }
-  @keyframes outBtm{
-  0%{transform: translateY(0px) rotate(0deg);}
-  50%{transform: translateY(-9px) rotate(0deg);}
-  100%{transform: translateY(-9px) rotate(135deg);}
-  }
+@-webkit-keyframes inBtm{
+0%{-webkit-transform: translateY(0px) rotate(0deg);}
+50%{-webkit-transform: translateY(-9px) rotate(0deg);}
+100%{-webkit-transform: translateY(-9px) rotate(135deg);}
+}
+@keyframes inBtm{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(-9px) rotate(0deg);}
+100%{transform: translateY(-9px) rotate(135deg);}
+}
+
+@-webkit-keyframes outBtm{
+0%{-webkit-transform: translateY(0px) rotate(0deg);}
+50%{-webkit-transform: translateY(-9px) rotate(0deg);}
+100%{-webkit-transform: translateY(-9px) rotate(135deg);}
+}
+@keyframes outBtm{
+0%{transform: translateY(0px) rotate(0deg);}
+50%{transform: translateY(-9px) rotate(0deg);}
+100%{transform: translateY(-9px) rotate(135deg);}
+}

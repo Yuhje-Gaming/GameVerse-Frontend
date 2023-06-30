@@ -1,22 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Card, CardBody, CardTitle, CardSubtitle, Button, NavLink } from "reactstrap";
-import "../styles/GameShow.css"; // Additional CSS file for styles
+import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, NavLink } from "reactstrap";
+import "../styles/GameShow.css"; 
 
 const GameShow = ({ games }) => {
   const { id } = useParams();
   let currentGame = games?.find((game) => game.id === +id);
 
   return (
-    <main className="game-show-container"> {/* Updated class name */}
+    <main className="background-image">
       {currentGame && (
-        <div className="show-game-card-container"> {/* New div with class for centering */}
-          <Card className="show-card-style" body color="dark">
-            <img
-              alt={`profile of the game ${currentGame.name}`}
-              src={currentGame.image}
-              className="profile-pic"
-            />
+        <Container>
+          <div className="game-show-container "> 
+            <Card className="cardStyle-show" body color="dark">
+              <img
+                alt={`profile of the game ${currentGame.name}`}
+                src={currentGame.image}
+                className="profile-pic"
+              />
 
             <CardBody>
               <CardTitle className="mb-2 text-white" tag="h5">{currentGame.title}</CardTitle>
@@ -44,11 +45,16 @@ const GameShow = ({ games }) => {
               <CardSubtitle className="ratingStyle text-white bg-success" tag="h6">
                 <span>{currentGame.rating}</span>
               </CardSubtitle> 
-              <Button href={`/gameedit/${currentGame.id}`} class=" text-white  bg-info" >Edit</Button>
+
+              <div className='edit-btn-container'>
+                <Button className="edit-btn" href={`/gameedit/${currentGame.id}`}>Edit Game</Button>
+              </div>
+
             </CardBody>
           </Card>
         </div>
-      )}
+      </Container>
+    )}
     </main>
   );
 };

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Row, Col, Button } from 'reactstrap'
-import Picture from "../assets/NotFoundPage.avif"
-import PictureTwo from "../assets/GameVerseHeader.png"
+import Picture from "../assets/Justin.png"
+import PictureTwo from "../assets/YueHan.png"
+import PictureThree from "../assets/Henri.png"
 import '../styles/AboutUs.css'
 
 const AboutUs = () => {
@@ -39,7 +40,7 @@ const AboutUs = () => {
         </Col>
         <Col className="cardCol">
           <Card className='cards'>
-            <img className='boxImg' alt="Sample" src={Picture} />
+            <img className='boxImg' alt="Sample" src={PictureThree} />
             <CardBody>
               <CardTitle tag="h5">Henri</CardTitle>
               <CardSubtitle className="mb-2 text-muted" tag="h6">Design Lead</CardSubtitle>

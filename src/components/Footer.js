@@ -1,33 +1,28 @@
 import React from "react"
-import { 
-  Navbar,
-  NavbarBrand, 
-  Button 
-} from "reactstrap"
-
+import { Navbar, Button } from "reactstrap"
+import "../styles/Footer.css"
 import Ylogo from "../assets/Ylogo.png"
 
 const Footer = () => {
 
   return (
     <>
-      <Navbar className="foot-navbar" color="dark" fixed="bottom">
-        <NavbarBrand href="/">
+     <Navbar className="foot-navbar" color="transparent">
+        <div>
           <img src={Ylogo} alt="Ylogo png" className="yfooter-logo" />
-
+          </div>
+        <div className='btn2-container'>
           <Button
-            href="/aboutus"
-            className="about-button"
-            color="light"
-            outline
+            className='aboutus-view-btn'
             size="sm"
+            href="/aboutus"
           >
             About Us
           </Button>
-        </NavbarBrand>
+        </div>
       </Navbar>
     </>
-  );
+  )
 }
 
 export default Footer

@@ -1,35 +1,75 @@
-.game-show-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
-  background-image: url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80');
-  background-size: cover;
-  background-position: center;
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
+
+.edit-btn-container{
+  position: bottom right;
+  width: 100%;
+  top: calc(50% + 14rem); /* Adjust the value 14rem so that the button is positioned under the carousel */
+  text-align: center;
+
 }
 
-.show-game-card-container {
-  max-width: 80%;
-  margin: auto;
-  align-content: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  display: flex;
+.edit-btn {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  background-color: rgb(7, 10, 82);
+  display: inline-block;
 }
 
+.cardStyle h5,
 .cardStyle h6 {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   margin-top: 0;
 }
 
-.show-game-card {
+.background-image{
+  background-image: url('https://shorturl.at/ADMZ0');
+}
+
+.game-show-container {
+  background-size:cover;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 1rem;
+}
+
+
+/* Show card */
+
+.cardStyle-show{
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  scale: 83%;
+}
+
+.cardStyle-show img {
+  flex: 1;
   width: 100%;
 }
 
-.show-cardStyle .show-ratingStyle {
-  justify-content: flex-end;
+.cardStyle-show h5,
+.cardStyle-show h6 {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  margin-top: 0;
+}
+
+.cardStyle-show .ratingStyle {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   padding: 0.5rem;
-  background-color: rgba(13, 247, 52, 0.5) !important;
+  background-color: rgba(3, 157, 16, 0.5);
   color: white;
   border-radius: 0.25rem;
+}
+
+.cardStyle .text {
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  color: white;
+  margin-bottom: 0.5rem;
 }
