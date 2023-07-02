@@ -1,5 +1,5 @@
 .cards {
-  width: 22rem; /* Increase the width value to make the cards larger */
+  width: 22rem;
   height: 50rem;
   border: 5px solid;
   border-image-slice: 1;
@@ -8,24 +8,28 @@
   margin-bottom: 2rem;
 }
 
-
 .boxImg {
   object-fit: cover;
-  height: 550px;
+  height: 750px;
+}
+
+.boxImg2 {
+  object-fit: cover;
+  height: 350px;
 }
 
 .containerStyle {
   background: url("../assets/GameVerseHeader.png") no-repeat center center fixed;
   background-size: cover;
-  min-height: 90vh; /* Use min-height instead of height to accommodate content */
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem; /* Add padding to create space around the cards */
+  padding: 2rem;
 }
 
 .cardCol {
-  flex: 1; /* Allow the columns to grow and take up equal space */
+  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -34,5 +38,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap; /* Prevent cards from wrapping to the next row */
+  flex-wrap: nowrap;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.cardTitle,
+.cardText {
+  margin: 0; /* Add this to remove default margins */
+}
+
+.cardB {
+  margin-top: auto;
 }

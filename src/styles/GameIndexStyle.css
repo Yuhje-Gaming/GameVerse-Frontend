@@ -1,12 +1,12 @@
-/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
 
-.containerStyle {
+.index-page{
   background-image: url('https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80');
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
 }
 
 .cardGrid {
@@ -15,18 +15,24 @@
   grid-gap: 20px;
 }
 
-.cardStyle {
-  width: 100%;
-  padding: 1rem;
-  background-color: dark;
-  color: white;
+.card-container {
+  width: 20rem;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 8px #999;
   display: flex;
   flex-direction: column;
+  margin: 0.5rem auto;
 }
 
-.cardStyle img {
-  flex: 1;
+.card-img {
   width: 100%;
+  border-radius: 1rem 1rem 0 0;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  margin: 0.5rem 5%;
 }
 
 .cardStyle h5,
@@ -35,7 +41,7 @@
   margin-top: 0;
 }
 
-.cardStyle .ratingStyle {
+.card-container .card-rating{
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   position: absolute;
   bottom: 0;
@@ -46,10 +52,10 @@
   border-radius: 0.25rem;
 }
 
-.cardStyle .text {
+.card-container .card-subtitle{
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   color: white;
-  margin-bottom: 0.5rem;
+  padding-bottom: 3rem;
 }
 
 .search-container {
@@ -65,10 +71,14 @@
 
 
 .click-btn-container{
-  position: bottom right;
-  width: 100%;
-  top: calc(50% + 14rem); /* Adjust the value 14rem so that the button is positioned under the carousel */
+  width: 60%;
   text-align: center;
+  border-radius: 5px;
+  margin: 0.5rem auto;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(210, 19, 18);
+  position: absolute;
   bottom: 0;
 }
 
