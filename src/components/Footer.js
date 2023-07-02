@@ -2,6 +2,7 @@ import React from "react"
 import { Navbar, Button } from "reactstrap"
 import "../styles/Footer.css"
 import Ylogo from "../assets/Ylogo.png"
+import Top from "../assets/Top.png"
 
 const Footer = () => {
 
@@ -10,7 +11,12 @@ const Footer = () => {
      <Navbar className="foot-navbar" color="transparent">
         <div>
           <img src={Ylogo} alt="Ylogo png" className="yfooter-logo" />
-          </div>
+        </div>
+        <div>
+          <a  href="#">
+          <img src={Top} alt="top png" className="top-btn" />
+          </a>
+        </div>
         <div className='btn2-container'>
           <Button
             className='aboutus-view-btn'

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Navbar,
-  NavbarBrand,
   Nav,
   NavItem,
   Collapse,
@@ -20,10 +19,12 @@ function Header({ currentUser, logout }) {
 
   return (
     <Navbar className="head-navbar" color="transparent">
-      <NavbarBrand href="/" className="navbar-brand-centered">
+      <Nav className="navbar-brand-centered">
         <div className="header-with-gradient-line"></div>
         <div className="logo-container">
-          <h1 className="navbar-gameverse">GAME VERSE</h1>
+              <NavLink to="/" className="navbar-gameverse">
+                GAME VERSE
+              </NavLink>
             {currentUser && (
               <>
                 <h5 className="login-email">Welcome, {currentUser.email}!</h5>
@@ -33,8 +34,8 @@ function Header({ currentUser, logout }) {
             <>
             </>
             )}
-            </div>
-      </NavbarBrand>
+        </div>
+      </Nav>
 
       <div className="navTrigger" onClick={handleNavTriggerClick}>
         <i></i>

@@ -29,6 +29,16 @@
   left: 10px;
 }
 
+.top-btn {
+  height: 90px;
+  width: 90px;
+  align-self: center;
+  position: absolute;
+  bottom: 0px;
+  right: 165px;
+}
+
+
 /* Button Container */
 
 /* Flex container for positioning the buttons within the footer */
