@@ -20,7 +20,7 @@ const GameIndex = ({ games }) => {
   });
 
   return (
-    <main style={containerStyle}>
+    <main className="index-page">
       <Container>
         <div className="search-container">
           <input
@@ -34,19 +34,19 @@ const GameIndex = ({ games }) => {
         <div className="cardGrid">
           {filteredGames.slice(0, 10).map((game, index) => {
             return (
-              <Card className="cardStyle" color="dark" key={index} >
-                <img className="cardStyle img" alt={`profile of a game named ${game.name}`} src={game.image} />
+              <Card className="card-container" color="dark" key={index} >
+                <img className="card-img" alt={`profile of a game named ${game.name}`} src={game.image} />
                 <CardBody>
-                  <CardTitle tag="h5">{game.name}</CardTitle>
-                  <CardSubtitle className="text" tag="h6">
+                  <CardTitle className="card-title" tag="h5">{game.name}</CardTitle>
+                  <CardSubtitle className="card-subtitle" tag="h6">
                     Name: {game.title}
                     <br />
                     Platform: {game.platform}
                     <br />
-                    <span className="ratingStyle">{game.rating}</span>
+                    <span className="card-rating">{game.rating}</span>
                   </CardSubtitle>
-                    <div className="click-btn-container " tag="h6">
-                  <NavLink to={`/gameshow/${game.id}`}>
+                    <div className="click-btn-container" tag="h6">
+                  <NavLink className="click-btn-container" to={`/gameshow/${game.id}`}>
                       Click to view
                   </NavLink>
                     </div>
