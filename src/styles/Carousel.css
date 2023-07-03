@@ -1,27 +1,20 @@
-/* Import custom fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
 
-/* Carousel Container */
 
-/* Main container for the carousel, setting position, size, and overflow */
 .carousel-container {
   position: relative;
   width: 90%;
   max-width: 900px;
-  margin: -220px auto; /* Negative margin to move carousel upwards */
+  margin: -220px auto; 
   overflow: hidden;
 }
 
-/* Carousel Slides */
-
-/* Flex container for individual slides, including transition effect */
 .carousel-slide {
   display: flex;
   width: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
-/* Container for images within each slide */
 .carousel-image-container {
   flex: 0 0 100%;
   display: flex;
@@ -32,34 +25,29 @@
   padding: 20px;
 }
 
-/* Style for images within the carousel */
 .carousel-image {
   max-width: 100%;
   height: auto;
+  border-radius: 13% 10% 10% 10% / 75% 75% 75% 75% ;
+  border-top: 7px solid #ff00008e;
+  border-bottom: 8px solid rgba(7, 189, 230, 0.523);
 }
 
-/* Text within Carousel */
-
-/* Styling for text box within each slide */
 .carousel-text {
   font-family: 'Ubuntu Mono', monospace;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  width: 89%;
+  background-color: rgba(0, 0, 0, 0.5); 
   color: white;
   padding: 10px;
   text-align: center;
-  margin-top: 10px; /* Adds space between the image and text */
+  margin-top: 10px; 
 }
 
-/* Styling for heading within text box */
 .carousel-text h3 {
   margin: 1px;
   font-family: 'Orbitron', sans-serif;
 }
 
-/* Carousel Navigation Buttons */
-
-/* Base styles for prev/next buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -74,12 +62,10 @@
   text-align: center;
 }
 
-/* Positioning for the "previous" button */
 .carousel-btn-prev {
   left: 10px;
 }
 
-/* Positioning for the "next" button */
 .carousel-btn-next {
   right: 10px;
 }

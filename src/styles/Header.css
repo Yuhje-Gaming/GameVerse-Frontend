@@ -1,10 +1,6 @@
-/* Import custom fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Ubuntu+Mono&display=swap');
 
-/* Main Header Styles */
-
-/* Styling for the header navigation bar */
 .head-navbar {
   display: flex;
   flex-direction: column;
@@ -16,7 +12,6 @@
   background-position: center;
 }
 
-/* Styling for the logo inside the header */
 .gameverse-logo {
   height: 70px;
   width: 80px;
@@ -24,41 +19,35 @@
   border-radius: 20%;
 }
 
-/* Centrally aligns brand text in the navigation bar */
 .navbar-brand-centered {
   display: flex;
   flex: 1;
   justify-content: center;
 }
 
-/* Font styling for Gameverse text in navigation bar */
 .navbar-gameverse{
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   color: white;
   font-size: 40px;
 }
 
-/* Heading text style inside header */
 .head-text {
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   color: white;
   font-size: 15px;
 }
 
-/* Subheading style in header */
 .login-email{
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
   color: white;
   font-size: 16px;
 }
 
-/* Styles for animated gradient line under header */
 .header-with-gradient-line {
   position: relative;
   display: contents;
 }
 
-/* Keyframes for animated gradient line */
 @keyframes slideGradient {
   0% {
     background-position: -100% 0;
@@ -68,7 +57,6 @@
   }
 }
 
-/* Adds the animated gradient line under the header */
 .header-with-gradient-line::after {
   content: "";
   position: absolute;
@@ -81,9 +69,7 @@
   animation: slideGradient 20s linear infinite;
 }
 
-/* Burger Menu Styles (Hamburger Icon) */
 
-/* Styles for the menu trigger (hamburger icon) */
 .navTrigger {
   cursor: pointer;
   width: 30px;
@@ -97,7 +83,6 @@
   bottom: 0;
 }
 
-/* Styles for lines inside the hamburger icon */
 .navTrigger i {
   background-color: #fff;
   border-radius: 2px;
