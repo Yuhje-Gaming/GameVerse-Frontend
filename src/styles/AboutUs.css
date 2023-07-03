@@ -41,7 +41,7 @@
   flex-wrap: nowrap;
 }
 
-.card-body {
+.card-body-about-us {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +50,7 @@
 
 .cardTitle,
 .cardText {
-  margin: 0; /* Add this to remove default margins */
+  margin: 0;
 }
 
 .cardB {

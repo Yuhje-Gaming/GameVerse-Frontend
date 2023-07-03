@@ -23,25 +23,25 @@ const GameIndex = ({ games }) => {
             className="search-input"
           />
         </div>
-        <div className="cardGrid">
+        <div className="cardGrid-index">
           {filteredGames.slice(0, 10).map((game, index) => {
             return (
-              <Card className="card-container" color="dark" key={index} >
-                <img className="card-img" alt={`profile of a game named ${game.name}`} src={game.image} />
-                <CardBody>
-                  <CardTitle className="card-title" tag="h5">{game.name}</CardTitle>
-                  <CardSubtitle className="card-subtitle" tag="h6">
+              <Card className="card-container-index" key={index} >
+                <img className="card-img-index" alt={`profile of a game named ${game.name}`} src={game.image} />
+                <CardBody className="card-body-index">
+                  <CardTitle className="card-title-index" tag="h5">{game.name}</CardTitle>
+                  <CardSubtitle className="card-subtitle-index" tag="h6">
                     Name: {game.title}
                     <br />
                     Platform: {game.platform}
-                    <br />
-                    <span className="card-rating">{game.rating}</span>
+                    <br />                  
                   </CardSubtitle>
                     <div className="click-btn-container" tag="h6">
                   <NavLink className="click-btn-container" to={`/gameshow/${game.id}`}>
-                      Click to view
-                  </NavLink>
+                      View
+                  </NavLink>                  
                     </div>
+                    <div className="card-rating-index">{game.rating}</div>
                 </CardBody>
               </Card>
             );
