@@ -19,7 +19,7 @@
 }
 
 .containerStyle {
-  background: url("../assets/GameVerseHeader.png") no-repeat center center fixed;
+  background: url("../assets/Aboutbg.png") no-repeat center center fixed;
   background-size: cover;
   min-height: 90vh;
   display: flex;

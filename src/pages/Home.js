@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import "../styles/Home.css";
-import Homebg from '../assets/Homebg.mp4';
 import Carousel from '../components/Carousel';
 
 
@@ -18,16 +17,6 @@ const Home = ({ games }) => {
   return (
 
     <div className='home-page'>
-      <div className='overlay'></div>
-
-      <video 
-        className='home-vbg'
-        src={Homebg} 
-        autoPlay 
-        loop 
-        muted 
-      />
-
       <div className='home-carousel'>
        <Carousel games={games} />
       </div>
