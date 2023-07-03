@@ -1,88 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mandali&display=swap');
 
 .index-page{
   background-image: url("../assets/Indexbg.png");
   background-size: cover;
   background-position:center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; 
+  flex-wrap: wrap;
   justify-content: center;
   min-height: 100vh;
+  min-width: 100%;
 }
 
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
-.card-container {
-  width: 20rem;
-  border-radius: 1rem;
-  box-shadow: 0px 10px 8px #999;
+.cardGrid-index {
   display: flex;
-  flex-direction: column;
-  margin: 0.5rem auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 95rem;
 }
 
-.card-img {
+.card-container-index {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: rgba(9, 9, 9, 0.852);
+}
+
+.card-container-index:hover {
+  box-shadow: 0px 10px 16px #efc11b;
+}
+
+.card-img-index {
   width: 100%;
   border-radius: 1rem 1rem 0 0;
-  height: 200px;
-  object-fit: cover;
+  height: 10rem;
 }
 
-.card-title {
-  margin: 0.5rem 5%;
+.card-body-index {
+  display: flex;
+  flex-direction: column;
 }
 
 .cardStyle h5,
 .cardStyle h6 {
   font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
-  margin-top: 0;
 }
 
-.card-container .card-rating{
-  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+.card-container-index .card-rating-index{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 0.5rem;
-  background-color: rgba(3, 157, 16, 0.5);
-  color: white;
+  right: 2%;
+  bottom: 2%;
+  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+  height: 1.5rem;
+  width: 2rem;
+  background-color: #f89553;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 4px 4px rgb(5, 5, 5);
   border-radius: 0.25rem;
 }
 
-.card-container .card-subtitle{
-  font-family: 'Orbitron', sans-serif, 'Ubuntu Mono', monospace;
+.card-container-index .card-subtitle-index{
+  font-family: 'Mandali', sans-serif;
+  font-size: large;
   color: white;
-  padding-bottom: 3rem;
+  position: relative;
 }
 
 .search-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
+  padding-left: 80%;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .search-input {
   border: 2px solid #ff0505;
   padding: 0.5rem;
+  border-radius: 1rem;
 }
 
 
 .click-btn-container{
-  width: 60%;
-  text-align: center;
-  border-radius: 5px;
-  margin: 0.5rem auto;
-  text-decoration: none;
-  color: white;
-  background-color: rgb(210, 19, 18);
+  font-family: 'Mandali', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  bottom: 0;
+  left: 2%;
+  bottom: 2%;
+  height: 1.5rem;
+  width: 2.5rem;
+  background-color: #2a34a0;;
+  color: white;
+  border-radius: 0.25rem;
+  text-decoration: none;
 }
 
 .click-btn {
