@@ -47,11 +47,11 @@ const GameEdit = ({ games, updateGame, destroyGame }) => {
 
 
   return (
-    <div className="background-image">
+    <div className="edit-background-image">
       <div className="edit-form">
         <div className="edit-text">Edit your game:</div>
         <br></br>
-        <Form className="page-background-image">
+        <Form className="edit-page-background-image">
           <Row>
             <Col md={6}>
               <FormGroup>

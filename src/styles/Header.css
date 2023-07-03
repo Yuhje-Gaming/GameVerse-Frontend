@@ -64,7 +64,8 @@
   left: 0;
   height: 3px;
   width: 100%;
-  background: linear-gradient(to right, transparent, #f90202) repeat-y;
+  opacity: 0.8;
+  background: linear-gradient(to right, yellow, #f90202) repeat-y;
   background-size: 50% 100%;
   animation: slideGradient 20s linear infinite;
 }
