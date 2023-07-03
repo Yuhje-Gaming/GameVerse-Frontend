@@ -22,7 +22,11 @@ const App = () => {
   console.log(currentUser)
   console.log(games)
 
-  const url = "https://gameverse-h8sm.onrender.com"
+  const url = "https://gameversefront.onrender.com"
+
+
+  // http://localhost:3000
+  // https://gameversefront.onrender.com
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token")
