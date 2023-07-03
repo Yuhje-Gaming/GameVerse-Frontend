@@ -1,9 +1,5 @@
-/* Import custom fonts */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Ubuntu+Mono&display=swap');
 
-/* Footer Navigation Bar */
-
-/* Flex container for the footer, fixed at the bottom of the page */
 .foot-navbar {
   display: flex;
   justify-content: flex-end;
@@ -17,9 +13,6 @@
   left: 0;
 }
 
-/* Footer Logo */
-
-/* Styles for the logo positioned in the footer */
 .yfooter-logo {
   height: 90px;
   width: 90px;
@@ -39,9 +32,6 @@
 }
 
 
-/* Button Container */
-
-/* Flex container for positioning the buttons within the footer */
 .btn2-container {
   display: flex;
   position: absolute;
@@ -49,12 +39,9 @@
   right: 0;
 }
 
-/* About Us Button */
-
-/* Styles for the "About Us" button within the footer */
 .aboutus-view-btn {
   font-family: 'Orbitron', sans-serif;
-  background-color: rgb(210, 19, 18);
+  background-color: rgba(210, 18, 18, 0.532);
   color: white;
   width: 100px;
   margin-bottom: 15%;
