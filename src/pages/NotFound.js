@@ -9,6 +9,8 @@ const systemMessage = {
   "role": "system", "content": "Explain things like you're a video game expert."
 }
 
+const MY_API = process.env.REACT_APP_API_KEY
+
 const NotFound = () => {
   const [messages, setMessages] = useState([
     {
@@ -67,8 +69,7 @@ const NotFound = () => {
       {
         method: "POST",
         headers: {
-          "withCredentials": true,
-          "Authorization": `Bearer ${process.env.REACT_APP_API_KEY}`,
+          "Authorization": `Bearer ${MY_API}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify(apiRequestBody)
