@@ -1,7 +1,7 @@
 # GameVerse FrontEnd
 ## OverView
 GameVerse is a gamified website that serves as a comprehensive catalog for games for passionate gamers to explore view summaries and ratings.
-**Live Link** : [link to Render!](https://dashboard.render.com/)
+**Live Link** [link to Render!](https://gameversefront.onrender.com/)
 
 # Features
 - User-Friendly Interface: GameVerse offers an intuitive and easy-to-use interface for seamless navigation.
@@ -41,7 +41,7 @@ GameVerse is a gamified website that serves as a comprehensive catalog for games
     "reactstrap": "^9.2.0",
     "web-vitals": "^2.1.0"
 
-## Fonts Used#
+## Fonts Used ##
 1. Google fonts - Obitron, Ubuntu Mono, Mandali
 
 ### Contributors
