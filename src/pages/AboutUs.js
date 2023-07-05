@@ -41,7 +41,7 @@ const AboutUs = () => {
               <CardBody>
                 <CardTitle tag="h5">Justin</CardTitle>
                 <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet justo donec enim diam vulputate ut pharetra sit.
+                  Justin is a Full Stack Developer breaking into the tech industry from serving in the military as a corpsman and later optician. Driven to master frontend and backend development, and passionate about solving complex problems. Enjoys exploring nature, hiking, surfing, and trying new food throughout San Diego.
                 </CardText>
                 <div className="CardB">
                   <Button href="https://www.linkedin.com/in/justinkarpman/" color="primary">LinkedIn</Button>{" "}
@@ -93,7 +93,9 @@ const AboutUs = () => {
               <CardBody>
                 <CardTitle tag="h5">Henri</CardTitle>
                 <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet justo donec enim diam vulputate ut pharetra sit.
+                  Henri is a native of Brazil, Full Stack Developer, with a Civil Engineering background and also an US Air Force veteran.
+                  Likes Anime, Manga, Netflix, anything Tech related, also going out to the movie theaters to immerse himself in cinematic experiences, going to the beach and parks to be connected to nature.
+                  In his essence, Henri is a blend of technical prowess, a lover of stories, and a soul who cherishes nature.
                 </CardText>
                 <div className="CardB">
                   <Button href="https://www.linkedin.com/in/hslambert" color="primary">LinkedIn</Button>{" "}
