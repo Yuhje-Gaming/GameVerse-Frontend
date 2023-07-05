@@ -2,10 +2,13 @@
 
 
 .carousel-container {
-  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90%;
   max-width: 900px;
-  margin: -220px auto; 
   overflow: hidden;
 }
 
@@ -22,12 +25,14 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-width: 60rem;
+  max-height: 50rem;
   padding: 20px;
 }
 
 .carousel-image {
   max-width: 100%;
-  height: auto;
+  height: 30rem;
   border-radius: 13% 10% 10% 10% / 75% 75% 75% 75% ;
   border-top: 7px solid #ff00008e;
   border-bottom: 8px solid rgba(7, 189, 230, 0.523);
@@ -35,7 +40,8 @@
 
 .carousel-text {
   font-family: 'Ubuntu Mono', monospace;
-  width: 89%;
+  max-width: 100%;
+  min-height: 200px;
   background-color: rgba(0, 0, 0, 0.5); 
   color: white;
   padding: 10px;
@@ -49,8 +55,7 @@
 }
 
 .carousel-btn {
-  position: absolute;
-  top: 50%;
+  /* top: 50%; */
   transform: translateY(-50%);
   background: transparent;
   color: #fff;
@@ -59,7 +64,7 @@
   font-size: 24px;
   width: 40px;
   height: 40px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .carousel-btn-prev {

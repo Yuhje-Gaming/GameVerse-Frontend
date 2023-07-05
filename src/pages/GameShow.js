@@ -1,60 +1,47 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Card, CardBody, CardTitle, CardSubtitle, Button, Container, NavLink } from "reactstrap";
-import "../styles/GameShow.css"; 
+import "../styles/GameShow.css";
 
-const GameShow = ({ games }) => {
+const GameShow = ({ currentUser, games }) => {
   const { id } = useParams();
   let currentGame = games?.find((game) => game.id === +id);
 
   return (
-    <main className="background-image">
+    <main>
       {currentGame && (
-        <Container>
-          <div className="game-show-container "> 
-            <Card className="cardStyle-show" body color="dark">
-              <img
-                alt={`profile of the game ${currentGame.name}`}
-                src={currentGame.image}
-                className="profile-pic"
-              />
-
-            <CardBody>
-              <CardTitle className="mb-2 text-white" tag="h5">{currentGame.title}</CardTitle>
-
-              <CardSubtitle className="mb-2 text-success" tag="h6">
+        <Container className="show-page">
+          <Card className="card-container-show">
+            <img
+              alt={`profile of the game ${currentGame.name}`}
+              src={currentGame.image}
+              className="card-img-show"
+            />
+            <CardBody className="card-body-show">
+              <CardTitle className="card-title-show" tag="h3">{currentGame.title}</CardTitle>
+              <CardSubtitle className="card-subtitle-show" tag="h6">
                 Platform: {currentGame.platform}
-              </CardSubtitle>
-
-              <CardSubtitle className="mb-2 text-white" tag="h6">
+                <br />
                 Genre: {currentGame.genre}
-              </CardSubtitle>
-
-              <CardSubtitle className="mb-2 text-white" tag="h6">
+                <br />
                 Developer: {currentGame.developer}
-              </CardSubtitle>
-
-              <CardSubtitle className="mb-2 text-white" tag="h6">
+                <br />
                 Summary: {currentGame.summary}
-              </CardSubtitle>
-
-              <CardSubtitle className="mb-2 text-danger" tag="h6">
+                <br />
                 Release Date: {currentGame.release_date}
+                <br />
               </CardSubtitle>
-
-              <CardSubtitle className="ratingStyle text-white bg-success" tag="h6">
-                <span>{currentGame.rating}</span>
-              </CardSubtitle> 
-
-              <div className='edit-btn-container'>
-                <Button className="edit-btn" href={`/gameedit/${currentGame.id}`}>Edit Game</Button>
+              {currentUser && (
+              <div className='edit-btn-container-show'>
+                <Button className="edit-btn-show" href={`/gameedit/${currentGame.id}`}>Edit Game</Button>
               </div>
-
+              )}{' '}
+              <div
+                className="card-rating-show">{currentGame.rating}</div>
             </CardBody>
           </Card>
-        </div>
-      </Container>
-    )}
+        </Container>
+      )}
     </main>
   );
 };
