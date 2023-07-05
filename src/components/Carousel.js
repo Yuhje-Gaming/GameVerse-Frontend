@@ -25,12 +25,13 @@ const Carousel = ({ games }) => {
             <div className="carousel-text">
               <h3>{game.title}</h3>
               <p>{game.platform}</p>
+              <button className="carousel-btn carousel-btn-prev" onClick={prevSlide}>&#9664;</button>
+              <button className="carousel-btn carousel-btn-next" onClick={nextSlide}>&#9654;</button>
             </div>
           </div>
         ))}
       </div>
-      <button className="carousel-btn carousel-btn-prev" onClick={prevSlide}>&#9664;</button>
-      <button className="carousel-btn carousel-btn-next" onClick={nextSlide}>&#9654;</button>
+
     </div>
   );
 };
