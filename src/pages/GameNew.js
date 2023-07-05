@@ -28,11 +28,11 @@ const GameNew = ({ createGame, currentUser }) => {
   };
 
   return (
-    <div className="background-image">
-      <div className="edit-form">
-        <div className="edit-text">Add your new game:</div>
+    <div className="new-background-image">
+      <div className="add-form">
+        <div className="add-text">Add your new game:</div>
         <br></br>
-        <Form className="page-background-image">
+        <Form className="new-page-background-image">
           <Row>
             <Col md={6}>
               <FormGroup>
