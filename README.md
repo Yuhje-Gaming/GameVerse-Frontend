@@ -1,7 +1,7 @@
 # GameVerse FrontEnd
 ## OverView
 GameVerse is a gamified website that serves as a comprehensive catalog for games for passionate gamers to explore view summaries and ratings.
-**Live Link** [link to the project!](https://gameversefront.onrender.com/)
+**Live Link** [->](https://gameversefront.onrender.com/)
 
 # Features
 - User-Friendly Interface: GameVerse offers an intuitive and easy-to-use interface for seamless navigation.
