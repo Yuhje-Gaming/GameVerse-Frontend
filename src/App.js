@@ -13,139 +13,63 @@ import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
-import mockGames from "./mockGames.js"
+import mockGames from "./mockGames.js";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
-  const [games, setGames] = useState(mockGames)
+  const [currentUser, setCurrentUser] = useState(null);
+  const [games, setGames] = useState(mockGames);
 
-  const navigate = useNavigate()
-  console.log(currentUser)
-  console.log(games)
-
-  // const url = "https://gameverse-h8sm.onrender.com"
-
-
-  // http://localhost:3000
-  // https://gameverse-h8sm.onrender.com
+  const navigate = useNavigate();
+  console.log(currentUser);
+  console.log(games);
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("token")
+    const loggedInUser = localStorage.getItem("token");
     if (loggedInUser) {
-      setCurrentUser(loggedInUser)
+      setCurrentUser(loggedInUser);
     }
-    readGames()
-  }, [])
-
-  const readGames = () => {
-    fetch(`${url}/games`)
-      .then(response => response.json())
-      .then(payload => {
-        setGames(payload)
-      })
-      .catch((error) => console.log(error))
-  }
+  }, []);
 
   const createGame = (game) => {
-    fetch(`${url}/games`, {
-      body: JSON.stringify(game),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "POST"
-    })
-      .then((response) => response.json())
-      .then((payload) => readGames())
-      .catch((errors) => console.log("Game create errors:", errors))
-  }
+    // Simulate the creation of a new game locally
+    const newGame = {
+      ...game,
+      id: games.length + 1,
+      user_id: currentUser ? currentUser.id : null,
+    };
+    setGames([...games, newGame]);
+  };
 
   const updateGame = (game, id) => {
-    fetch(`${url}/games/${id}`, {
-      body: JSON.stringify(game),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "PATCH"
-    })
-      .then((response) => response.json())
-      .then((payload) => updateGame(payload))
-      .catch((errors) => console.log("Game update errors:", errors))
-  }
+    // Simulate the update of a game locally
+    const updatedGames = games.map((g) => (g.id === id ? { ...g, ...game } : g));
+    setGames(updatedGames);
+  };
 
   const destroyGame = (id) => {
-    fetch(`${url}/games/${id}`, {
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "DELETE"
-    })
-      .then((response) => response.json())
-      .then((payload) => {
-        readGames(payload)
-        navigate("/gameindex")
-      })
-      .catch((error) => console.log("Game delete error:", error))
-  }
-
+    // Simulate the deletion of a game locally
+    const updatedGames = games.filter((g) => g.id !== id);
+    setGames(updatedGames);
+    navigate("/gameindex");
+  };
 
   const login = (userInfo) => {
-    fetch(`${url}/login`, {
-      body: JSON.stringify(userInfo),
-      headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json'
-      },
-      method: 'POST'
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText)
-        }
-        localStorage.setItem("token", response.headers.get("Authorization"))
-        return response.json()
-      })
-      .then(payload => {
-        setCurrentUser(payload)
-      })
-      .catch(error => console.log("login errors: ", error))
-  }
+    // Simulate login by setting the current user
+    setCurrentUser(userInfo);
+    localStorage.setItem("token", "fakeToken");
+  };
 
   const signup = (userInfo) => {
-    fetch(`${url}/signup`, {
-      body: JSON.stringify(userInfo),
-      headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json'
-      },
-      method: 'POST'
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw Error(response.statusText)
-        }
-        localStorage.setItem("token", response.headers.get("Authorization"))
-        return response.json()
-      })
-      .then(payload => {
-        setCurrentUser(payload)
-      })
-      .catch(error => console.log("login errors: ", error))
-  }
+    // Simulate signup by setting the current user
+    setCurrentUser(userInfo);
+    localStorage.setItem("token", "fakeToken");
+  };
 
   const logout = () => {
-    fetch(`${url}/logout`, {
-      headers: {
-        "Content-Type": 'application/json',
-        "Authorization": localStorage.getItem("token") //retrieve the token 
-      },
-      method: 'DELETE'
-    })
-      .then(payload => {
-        localStorage.removeItem("token")  // remove the token
-        setCurrentUser(null)
-      })
-      .catch(error => console.log("log out errors: ", error))
-  }
+    // Simulate logout by removing the token and current user
+    localStorage.removeItem("token");
+    setCurrentUser(null);
+  };
 
 
   return (
