@@ -13,16 +13,17 @@ import GameShow from "./pages/GameShow";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
+import mockGames from "./mockGames.js"
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
-  const [games, setGames] = useState([])
+  const [games, setGames] = useState(mockGames)
 
   const navigate = useNavigate()
   console.log(currentUser)
   console.log(games)
 
-  const url = "https://gameverse-h8sm.onrender.com"
+  // const url = "https://gameverse-h8sm.onrender.com"
 
 
   // http://localhost:3000
