@@ -76,7 +76,7 @@ const App = () => {
     <>
       <Header currentUser={currentUser} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home readGames={readGames} games={games} />} />
+        <Route path="/" element={<Home games={games} />} />
         <Route path="*" element={<NotFound />} />
         <Route
           path="/gameedit/:id"
