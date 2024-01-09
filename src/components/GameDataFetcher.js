@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const APIKEY = "af8d52f9a0f84f0db2d6ff805ae4d774";
+const APIKEY = "yourkey";
 
 const GameDataFetcher = ({ children }) => {
     const [games, setGames] = useState([]);
