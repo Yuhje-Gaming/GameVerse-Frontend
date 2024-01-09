@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AboutUs from "./pages/AboutUs";
 import mockGames from "./mockGames.js";
+import GameCatalogPage from "./pages/GameCatalogPage.js";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -108,6 +109,7 @@ const App = () => {
         <Route path="/login" element={<LogIn login={login} />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/gamecatalogpage" element={<GameCatalogPage />} />
       </Routes>
       <Footer />
     </>
