@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const APIKEY = "yourkey";
-
 const GameDataFetcher = ({ children }) => {
     const [games, setGames] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +12,7 @@ const GameDataFetcher = ({ children }) => {
             setError(null);
             const options = {
                 method: 'GET',
-                url: `https://api.rawg.io/api/games?key=${APIKEY}`,
+                url: `https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`,
             };
 
             try {
